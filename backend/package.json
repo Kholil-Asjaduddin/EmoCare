@@ -7,13 +7,14 @@
     "start": "node src/index.js",
     "build": "echo 'Building backend...'",
     "test": "echo 'Running tests for backend...'",
-    "lint": "eslint src/",
+    "lint": "eslint .",
     "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^9.20.1",
     "express": "^4.21.2"
   }
 }
