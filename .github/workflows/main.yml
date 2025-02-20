@@ -30,11 +30,11 @@ jobs:
 
     - name: Run Tests
       working-directory: ./frontend
-      run: npm test
+      run: npm run test
 
     - name: Format code with Prettier
       working-directory: ./frontend
-      run: npx prettier --check "."
+      run: npm run format
 
     - name: Build application
       working-directory: ./frontend
@@ -63,11 +63,11 @@ jobs:
 
     - name: Run Tests
       working-directory: ./backend
-      run: npm test
+      run: npm run test
 
     - name: Format code with Prettier
       working-directory: ./backend
-      run: npx prettier --check "."
+      run: npm run format
 
     - name: Build application
       working-directory: ./backend
