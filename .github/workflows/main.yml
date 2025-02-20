@@ -1,0 +1,74 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  frontend_build:
+    name: Frontend Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      working-directory: ./frontend
+      run: npm install
+
+    - name: Run Linter (ESLint)
+      working-directory: ./frontend
+      run: npm run lint
+
+    - name: Run Tests
+      working-directory: ./frontend
+      run: npm test
+
+    - name: Format code with Prettier
+      working-directory: ./frontend
+      run: npx prettier --check "."
+
+    - name: Build application
+      working-directory: ./frontend
+      run: npm run build
+
+  backend_build:
+    name: Backend Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      working-directory: ./backend
+      run: npm install
+
+    - name: Run Linter (ESLint)
+      working-directory: ./backend
+      run: npm run lint
+
+    - name: Run Tests
+      working-directory: ./backend
+      run: npm test
+
+    - name: Format code with Prettier
+      working-directory: ./backend
+      run: npx prettier --check "."
+
+    - name: Build application
+      working-directory: ./backend
+      run: npm run build
