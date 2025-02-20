@@ -3,8 +3,8 @@
 - **Raudha Nur Hidayatullah Susanto**: 22/500044/TK/54789
 - **Tsania Galuh Banggash**: 22/500322/TK/54832
 
-## Project Senior Project TI
-## Departemen Teknologi Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada
+**Project Senior Project TI**
+**Departemen Teknologi Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada**
 
 ---
 
