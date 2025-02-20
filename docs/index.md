@@ -1,8 +1,7 @@
 # **apa yaa**
-
-### - **Kholil Asjaduddin**: 22/504792/TK/55224
-### - **Raudha Nur Hidayatullah Susanto**: 22/500044/TK/54789
-### - **Tsania Galuh Banggash**: 22/500322/TK/54832
+- **Kholil Asjaduddin**: 22/504792/TK/55224
+- **Raudha Nur Hidayatullah Susanto**: 22/500044/TK/54789
+- **Tsania Galuh Banggash**: 22/500322/TK/54832
 
 ## Project Senior Project TI
 ## Departemen Teknologi Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada
@@ -10,10 +9,10 @@
 ---
 
 ### **Nama Produk**
-### EmoCare
+EmoCare
 
 ### **Jenis Produk**
-#### Healthcare Technology
+Healthcare Technology
 
 ### **Latar Belakang**
 Kesehatan mental menjadi isu global yang semakin mendapat perhatian, terutama dengan meningkatnya kasus stres, kecemasan, dan depresi. Sekitar 280 juta orang di dunia mengalami depresi. Namun, akses terhadap layanan kesehatan mental masih terbatas karena beberapa faktor, seperti kurangnya tenaga profesional, biaya yang tinggi, serta adanya stigma sosial yang melekat pada konsultasi psikologis dan terhadap pengidap gangguan kesehatan mental. Setidaknya 90% orang dengan gangguan kesehatan mental tidak mendapatkan akses terhadap perawatan yang memadai, menurut prediksi Kementerian Kesehatan Indonesia. Penerapan inovasi teknologi dapat memberikan solusi untuk kemudahan akses layanan kesehatan mental di era digital saat ini. 
@@ -31,8 +30,6 @@ Proyek ini bertujuan untuk mengembangkan aplikasi kesehatan mental yang mengimpl
 Sebuah platform inovatif yang dirancang untuk memberikan dukungan kesehatan mental yang mudah diakses dan terjangkau bagi semua orang. Memungkinkan pengguna berinteraksi dengan profesional dan komunitas dari jarak jauh.  Aplikasi ini juga memanfaatkan kecerdasan buatan yang mampu memberikan saran sesuai keluhan terkait kesehatan mental pengguna.
 
 ## **Analisis Kompetitor**
-## Analisis Kompetitor
-
 | Nama                          | Jenis Kompetitor  | Jenis Produk                                  | Target Customer                          | Kelebihan                                                                                 | Kekurangan                                                                       | Key Competitive Advantage & Unique Value                                  |
 |-------------------------------|-------------------|-----------------------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | **Wysa**                      | Direct Competitor | Chatbot AI untuk kesehatan mental & mindfulness | Orang yang mengalami kecemasan, stres, atau insomnia | - Menggunakan teknik terapi berbasis bukti<br>- Membantu user meditasi & mindfulness<br>- Memiliki fitur pelacak mood harian  | - Beberapa fitur hanya tersedia di premium<br>- Tidak memiliki banyak variasi topik percakapan<br>- Kurang personal dibanding bicara dengan manusia | Kombinasi antara chatbot kesehatan mental dan teknik mindfulness yang membuatnya lebih holistik     |
