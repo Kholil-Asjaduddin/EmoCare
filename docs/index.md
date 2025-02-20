@@ -37,4 +37,53 @@ Sebuah platform inovatif yang dirancang untuk memberikan dukungan kesehatan ment
 | **Woebot: The Mental Health Ally** | Direct Competitor | Chatbot AI untuk kesehatan mental                   | Remaja & dewasa yang butuh dukungan mental ringan   | - Berdasarkan CBT (Cognitive Behavioral Therapy)<br>- Bisa digunakan kapan saja tanpa psikolog<br>- Gratis untuk fitur dasar                              | - Terbatas hanya berbasis teks<br>- Tidak bisa menggantikan terapi profesional<br>- Beberapa fitur hanya tersedia ketika premium                              | Mudah digunakan tanpa biaya besar                                                               |
 | **Moodmate**                       | Direct Competitor | Aplikasi AI Health Assistant untuk kesehatan mental | Remaja, dewasa muda, dan pekerja                    | - Memiliki AI Health Assistant untuk mendeteksi gejala awal masalah kesehatan mental<br>- Terintegrasi dengan layanan konsultasi profesional di Indonesia | - Masih dalam tahap pengembangan dan belum terlalu populer<br>- Tidak semua fitur tersedia secara gratis<br>- Kurang fleksibel dibandingkan chatbot yang lain | Solusi kesehatan mental berbasis AI yang terintegrasi dengan tenaga profesional di Indonesia    |
 
+## **SDLC Pengembangan Produk**
+Metodologi: Scrum
+
+Scrum memiliki fleksibilitas dan adaptabilitasnya yang tinggi. Dengan sprint yang pendek (satu pekan), Scrum memungkinkan tim untuk beradaptasi dengan perubahan kebutuhan dan prioritas proyek secara terus-menerus. Hal ini memungkinkan pengiriman incremental, di mana bagian dari produk dapat diselesaikan dan dievaluasi secara berkala. Selain itu, Scrum mendorong transparansi dan kolaborasi melalui pertemuan harian (daily stand-ups), perencanaan sprint, dan retrospektif, sehingga memastikan semua anggota tim tetap sinkron dan fokus pada tujuan yang sama. Melalui evaluasi berkelanjutan ini, tim dapat terus meningkatkan proses dan kinerjanya. 
+
+### **Tujuan Produk**
+1. Memastikan layanan kesehatan mental lebih mudah diakses oleh semua orang, tanpa memandang lokasi dan biaya. 
+2. Menggunakan chatbot berbasis AI untuk memberikan saran dan konseling awal secara real-time kepada pengguna. 
+3. Mengimplementasikan jaringan komputer, komputasi awan, dan AI dalam pengembangan aplikasi untuk meningkatkan efisiensi dan efektivitas layanan. 
+4. Memungkinkan interaksi jarak jauh dengan profesional kesehatan mental dan komunitas untuk dukungan tambahan. 
+5. Menyediakan informasi dan materi edukatif untuk meningkatkan kesadaran dan pengetahuan tentang kesehatan mental. 
+
+### **Pengguna Potensial & Kebutuhan Pengguna**
+Pengguna potensial: 
+- Remaja dan dewasa muda yang ingin mendapatkan dukungan kesehatan mental 
+- Individu dengan keterbatasan akses ke layanan kesehatan mental 
+- Orang yang ingin mendapatkan edukasi seputar kesehatan mental 
+
+Kebutuhan pengguna: 
+- Akses cepat dan mudah ke dukungan emosional 
+- Materi tentang cara mengelola stres, kecemasan, dan masalah kesehatan mental lainnya. 
+- Akses ke layanan konsultasi dengan psikolog atau konselor. 
+- Mendapatkan saran awal dan dukungan emosional secara real-time. 
+
+### **Use Case Diagram**
+![Alt Text](../assets/images/usecase.png)
+
+### **Functional Requirements**
+| Functional Requirements                                 | Deskripsi                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Mengakses konten edukatif**                           | - Sistem harus menyediakan berbagai jenis konten edukatif terkait kesehatan mental dalam bentuk artikel, video, maupun *podcast*  <br> - Pengguna dapat mencari konten berdasarkan kategori atau *keyword*  <br> - Admin dapat menambah, mengedit, dan menghapus konten edukatif                                                                                                                                          |
+| **Bergabung dengan komunitas & dukungan sosial**        | - Pengguna dapat bergabung dalam komunitas berdasarkan minat atau kondisi mental tertentu <br> - Sistem memungkinkan pengguna untuk memposting cerita atau berbagi pengalaman di komunitas  <br> - Admin dapat mengawasi dan menghapus konten yang melanggar aturan komunitas  <br> - Pengguna dapat berinteraksi dengan sesama anggota komunitas                                                                         |
+| **Menggunakan chatbot**                                 | - Chatbot harus dapat menerima input teks dari pengguna terkait keluhan mental mereka <br> - Chatbot harus memberikan jawaban berdasarkan analisis AI terhadap input pengguna <br> - Sistem harus merekomendasikan artikel atau konten edukatif yang relevan berdasarkan interaksi dengan chatbot <br> - Jika chatbot mendeteksi masalah serius, sistem harus menyarankan pengguna untuk berkonsultasi dengan profesional |
+| **Melakukan konsultasi online**                         | - Pengguna harus dapat membuat akun dan *login* untuk melakukan konsultasi *online* <br> - Sistem harus menyediakan fitur pemesanan jadwal dan pelaksanaan konsultasi dengan psikolog <br> - Psikolog harus dapat mengelola jadwal konsultasi mereka                                                                                                                                                                      |
+| **Mengatur jadwal konsultasi**                          | - Psikolog harus dapat mengatur ketersediaan jadwal mereka di dalam sistem <br> - Pengguna dapat memilih sesi yang tersedia untuk konsultasi <br> - Pengguna dapat membatalkan atau mengubah jadwal sesuai kebijakan yang berlaku                                                                                                                                                                                         |
+| **Mengelola konten aplikasi**                           | - Admin harus dapat mengelola konten dan fitur aplikasi agar lebih mudah digunakan oleh pengguna                                                                                                                                                                                                                                                                                                                          |
+| **Mengelola data penggunaan aplikasi**                  | - Sistem harus mengumpulkan dan menyimpan data interaksi pengguna dengan fitur aplikasi <br> - Admin dapat melihat data penggunaan aplikasi dengan tetap menjaga privasi pengguna                                                                                                                                                                                                                                         |
+
+### **Entity Relationship Diagram**
+![Entity Relationship Diagram](../assets/images/erd.png)
+
+### **Low-fidelity Wireframe**
+![Low-Fidelity Wireframe 1](../assets/images/lofi1.png)
+
+![Low-Fidelity Wireframe 2](../assets/images/lofi2.png)
+
+### **Gantt-Chart Pengerjaan Proyek**
+![Gantt-Chart](../assets/images/gantt.png)
+
 ---
