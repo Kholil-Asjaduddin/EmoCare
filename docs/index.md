@@ -62,7 +62,7 @@ Kebutuhan pengguna:
 - Mendapatkan saran awal dan dukungan emosional secara real-time. 
 
 ### **Use Case Diagram**
-![Use Case Diagram](/assets/images/usecase.png)
+![Use Case Diagram](/EmoCare/assets/usecase.png)
 
 ### **Functional Requirements**
 
@@ -77,14 +77,14 @@ Kebutuhan pengguna:
 | **Mengelola data penggunaan aplikasi**                  | - Sistem harus mengumpulkan dan menyimpan data interaksi pengguna dengan fitur aplikasi<br>- Admin dapat melihat data penggunaan aplikasi dengan tetap menjaga privasi pengguna                                                                                                                                                                                                                                     |
 
 ### **Entity Relationship Diagram**
-![Entity Relationship Diagram](/assets/images/erd.png)
+![Entity Relationship Diagram](/EmoCare/assets/erd.png)
 
 ### **Low-fidelity Wireframe**
-![Low-Fidelity Wireframe 1](/assets/images/lofi1.png)
+![Low-Fidelity Wireframe 1](/EmoCare/assets/lofi1.png)
 
-![Low-Fidelity Wireframe 2](/assets/images/lofi2.png)
+![Low-Fidelity Wireframe 2](/EmoCare/assets/lofi2.png)
 
 ### **Gantt-Chart Pengerjaan Proyek**
-![Gantt-Chart](/assets/images/gantt.png)
+![Gantt-Chart](/EmoCare/assets/gantt.png)
 
 ---
