@@ -33,7 +33,7 @@ const LoginForm = () => {
 
             {/* Sign Up Link */}
             <p className="text-center text-xl text-navy mt-4">
-                Don't have an account yet?{" "}
+                Don&apos;t have an account yet?{" "}
                 <a href="/signup" className="text-teal underline">
                     Sign Up
                 </a>
