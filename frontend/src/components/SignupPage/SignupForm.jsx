@@ -1,4 +1,3 @@
-import React from "react";
 import SignupButton from "./SignupButton";
 
 const SignupForm = () => {

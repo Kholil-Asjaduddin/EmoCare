@@ -1,5 +1,3 @@
-import React from "react";
-
 const Navbar = () => {
     return (
         <header className="absolute top-[-2px] left-0 w-full h-[50px] bg-light flex items-center px-8">
