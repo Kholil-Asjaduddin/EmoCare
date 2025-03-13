@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Used for testing
+
 import CommunityPage from "./components/CommunityPage/CommunityPage";
+
+// Used for testing
+// import Test from "./test/Test";
 
 function App() {
   return (
