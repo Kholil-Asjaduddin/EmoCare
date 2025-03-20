@@ -3,7 +3,7 @@ import HeroSection from "./HeroSection";
 
 const LandingPage = () => {
     return (
-        <div className="bg-light min-h-screen w-full">
+        <div className="min-h-screen w-full">
             <Navbar />
             <HeroSection />
         </div>

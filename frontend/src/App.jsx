@@ -15,8 +15,11 @@ function App() {
     <Router>
       <main>
         <Routes>
+          {/* route to /landing */}
           <Route path="/landing" element={<LandingPage />} />
+          {/* route to /signup */}
           <Route path="/signup" element={<SignupPage />} />
+          {/* route to /login */}
           <Route path="/login" element={<LoginPage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
