@@ -13,6 +13,7 @@ import CommunityPage from "./components/CommunityPage/CommunityPage";
 function App() {
   return (
     <Router>
+      {/* <Navbar /> */}
       <main>
         <Routes>
           {/* route to /landing */}
@@ -23,7 +24,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
-          {/* <Route path="/navbar" element={<Navbar />} /> */}
+          
           {/* route to /test */}
           {/* <Route path="/" element={<Test />} /> */}
         </Routes>
