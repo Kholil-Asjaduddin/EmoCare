@@ -4,7 +4,7 @@ const ViewButton = ({ onClick }) => {
     return (
         <button
             onClick={onClick}
-            className={`bg-blue-light text-navy font-normal text-3xl py-4 px-20 rounded-full drop-shadow-lg`}
+            className={`w-fit bg-blue-light text-navy font-normal text-3xl py-4 px-16 rounded-full drop-shadow-lg`}
         >
             View
         </button>
