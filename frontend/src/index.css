@@ -50,6 +50,14 @@ h1 {
   }
 }
 
+.bg-light {
+    background-color: #C6DFEA;
+}
+
+.bg-nav {
+    background-color: #9DC8DC;
+}
+
 .bg-navy {
   background-color: #13005A;
 }
