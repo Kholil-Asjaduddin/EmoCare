@@ -35,7 +35,7 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="w-screen flex flex-row flex-wrap justify-between px-26">
+    <div className="w-screen flex flex-row flex-wrap justify-between pt-20 px-27">
       {communities.map((community) => (
         <CommunityCard
           key={community.id}
