@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-        <header className="absolute top-[-2px] left-0 w-full h-[50px] bg-light flex items-center px-8">
+        <header className="absolute top-[-2px] left-0 w-full h-[50px] flex items-center px-8">
             {/* Navigation Links */}
             <nav className="flex gap-10">
                 <a href="/" className="text-navy text-[20px] font-bold px-4 py-1">

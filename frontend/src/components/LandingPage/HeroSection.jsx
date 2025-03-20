@@ -2,7 +2,7 @@ import heroImage from "../../assets/landing-image.svg";
 
 const HeroSection = () => {
     return (
-        <div className="flex flex-col lg:flex-row justify-between items-center px-16 py-12 bg-light h-screen">
+        <div className="flex flex-col lg:flex-row justify-between items-center px-16 py-12 h-screen">
             {/* Left Section (Text + Button) */}
             <div className="text-left">
                 <h1 className="text-navy text-6xl font-extrabold">EmoCare</h1>
