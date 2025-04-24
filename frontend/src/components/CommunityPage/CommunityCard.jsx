@@ -27,8 +27,8 @@ const CommunityCard = ({
                   <circle cx="20.5" cy="16.5" r="16.5" fill="#03C988"/>
                 </g>
                 <defs>
-                  <filter id="filter0_d_223_121" x="0" y="0" width="41" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <filter id="filter0_d_223_121" x="0" y="0" width="41" height="41" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                     <feOffset dy="4"/>
                     <feGaussianBlur stdDeviation="2"/>

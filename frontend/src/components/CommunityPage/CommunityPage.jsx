@@ -36,6 +36,7 @@ const CommunityPage = () => {
 
   const handleView = (id) => {
     // Navigate to the community chat page
+    console.log(`Navigating to community chat page with ID: ${id}`);
     };
 
   return (
