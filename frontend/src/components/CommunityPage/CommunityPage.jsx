@@ -18,21 +18,25 @@ const CommunityPage = () => {
     fetchCommunities();
   }, []);
 
-  const handleJoin = (id) => {
-    setCommunities((prev) =>
-      prev.map((community) =>
-        community.id === id ? { ...community, isJoined: true } : community,
-      ),
-    );
-  };
+  // const handleJoin = (id) => {
+  //   setCommunities((prev) =>
+  //     prev.map((community) =>
+  //       community.id === id ? { ...community, isJoined: true } : community,
+  //     ),
+  //   );
+  // };
 
-  const handleLeave = (id) => {
-    setCommunities((prev) =>
-      prev.map((community) =>
-        community.id === id ? { ...community, isJoined: false } : community,
-      ),
-    );
-  };
+  // const handleLeave = (id) => {
+  //   setCommunities((prev) =>
+  //     prev.map((community) =>
+  //       community.id === id ? { ...community, isJoined: false } : community,
+  //     ),
+  //   );
+  // };
+
+  const handleView = (id) => {
+    // Navigate to the community chat page
+    };
 
   return (
     <div className="w-screen flex flex-row flex-wrap justify-between pt-20 px-27">
@@ -42,9 +46,7 @@ const CommunityPage = () => {
           name={community.name}
           members={community.members}
           isJoined={community.isJoined}
-          onJoin={() => handleJoin(community.id)}
-          onView={() => console.log(`Viewing ${community.name}`)}
-          onLeave={() => handleLeave(community.id)}
+          onView={() => handleView(community.id)}
         />
       ))}
     </div>
