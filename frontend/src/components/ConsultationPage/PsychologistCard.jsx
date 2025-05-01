@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import BriefcaseIcon from "../../assets/briefcase-icon.svg";
 import BookSessionButton from "./BookSessionButton";
+import OpenConsultationPageButton from "./OpenConsultationPageButton";
 
 const PsychologistCard = ({
   profilePhotoUrl,
@@ -10,10 +11,19 @@ const PsychologistCard = ({
   experience,
   fee,
   isBooked,
-  openSchedule,
+  isSessionTime,
+  onOpenSchedule,
 }) => {
+  // profilePhotoUrl = "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg";
+  // name = name || "John Doe, S.Psi";
+  // specialist = specialist || "Anxiety, Trauma, Stress";
+  // experience = experience || 12;
+  // fee = fee || 1000000;
+  // isBooked = false;
+  // isSessionTime = false;
+
   return (
-    <div className="w-full h-58 flex justify-between items-center bg-nav rounded-[40px] mb-9 ps-15 pe-20 drop-shadow-lg">
+    <div className="w-full h-58 flex justify-between items-center bg-nav rounded-[40px] mb-9 ps-15 pe-20 drop-shadow-lg font-poppins">
       <div className="flex gap-15">
         <div className="bg-gray-300 rounded-2xl">
           <img
@@ -39,14 +49,19 @@ const PsychologistCard = ({
 
       <div>
         {!isBooked ? (
-          <BookSessionButton onClick={openSchedule} />
+          <BookSessionButton
+            onClick={onOpenSchedule}
+            disabled={false}
+            bgColor={""}
+          />
         ) : (
-          <button
-            className="bg-gray-300 text-blue-dark text-2xl font-medium px-8 py-4 rounded-full shadow-md"
-            disabled
-          >
-            Booked
-          </button>
+          <div className="flex flex-col gap-1">
+            <OpenConsultationPageButton
+              onClick={onOpenSchedule}
+              disabled={isSessionTime ? false : true}
+              bgColor={isSessionTime ? "#03C988" : "#CBD3D6"}
+            />
+          </div>
         )}
       </div>
     </div>
@@ -60,7 +75,8 @@ PsychologistCard.propTypes = {
   experience: PropTypes.number.isRequired,
   fee: PropTypes.number.isRequired,
   isBooked: PropTypes.bool.isRequired,
-  openSchedule: PropTypes.func.isRequired,
+  isSessionTime: PropTypes.bool.isRequired,
+  onOpenSchedule: PropTypes.func.isRequired,
 };
 
 export default PsychologistCard;
