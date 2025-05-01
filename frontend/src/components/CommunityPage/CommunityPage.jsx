@@ -37,7 +37,7 @@ const CommunityPage = () => {
   const handleView = (id) => {
     // Navigate to the community chat page
     console.log(`Navigating to community chat page with ID: ${id}`);
-    };
+  };
 
   return (
     <div className="w-screen flex flex-row flex-wrap justify-between pt-20 px-27">
