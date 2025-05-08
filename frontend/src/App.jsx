@@ -6,7 +6,8 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import CommunityPage from "./components/CommunityPage/CommunityPage";
 import ChatbotPage from "./components/ChatbotPage/ChatbotPage";
-//import Navbar from "./components/Navbar";
+import PsychologistPage from "./components/ConsultationPage/PsychologistPage";
+import Navbar from "./components/Navbar";
 
 // Used for testing
 // import Test from "./test/Test";
@@ -14,8 +15,8 @@ import ChatbotPage from "./components/ChatbotPage/ChatbotPage";
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
-      <main>
+      <Navbar />
+      <main className="pt-5">
         <Routes>
           {/* route to /landing */}
           <Route path="/landing" element={<LandingPage />} />
@@ -27,6 +28,8 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
+          {/* route to /consultation */}
+          <Route path="/consultation" element={<PsychologistPage />} />
           {/* route to /chatbot */}
           <Route path="/chatbot" element={<ChatbotPage />} />
 
