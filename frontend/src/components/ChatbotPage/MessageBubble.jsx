@@ -1,7 +1,7 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const MessageBubble = ({ text, time, isSender }) => {
-    const bgColor = isSender ? "bg-[#509FBF] text-white" : "bg-[#EAF0F1] text-gray-800";
+    const bgColor = isSender ? "bg-blue-light text-white" : "bg-[#EAF0F1] text-gray-800";
 
     return (
         <div className={`flex ${isSender ? "justify-end" : "justify-start"}`}>
@@ -11,6 +11,12 @@ const MessageBubble = ({ text, time, isSender }) => {
             </div>
         </div>
     );
+};
+
+MessageBubble.propTypes = {
+    text: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    isSender: PropTypes.bool.isRequired,
 };
 
 export default MessageBubble;
