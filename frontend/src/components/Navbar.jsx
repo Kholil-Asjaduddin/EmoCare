@@ -1,27 +1,18 @@
 const Navbar = () => {
   return (
-    <header className="absolute top-[-2px] left-0 w-full h-[50px] flex items-center px-8">
+    <header className="sticky top-[-2px] left-0 w-full h-[90px] flex bg-nav items-center px-8">
       {/* Navigation Links */}
-      <nav className="flex gap-10">
-        <a href="/" className="text-navy text-[20px] font-bold px-4 py-1">
+      <nav className="flex gap-10 text-3xl font-bold">
+        <a href="/" className="text-navy px-4">
           Home
         </a>
-        <a
-          href="/community"
-          className="text-navy text-[20px] font-normal px-4 py-1"
-        >
+        <a href="/community" className="text-navy font-normal px-4">
           Community
         </a>
-        <a
-          href="/consultation"
-          className="text-navy text-[20px] font-normal px-4 py-1"
-        >
+        <a href="/consultation" className="text-navy font-normal px-4">
           Consultation
         </a>
-        <a
-          href="/chatbot"
-          className="text-navy text-[20px] font-normal px-4 py-1"
-        >
+        <a href="/chatbot" className="text-navy font-normal px-4">
           Chatbot
         </a>
       </nav>

@@ -4,7 +4,8 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import SignupPage from "./components/SignupPage/SignupPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import CommunityPage from "./components/CommunityPage/CommunityPage";
-//import Navbar from "./components/Navbar";
+import PsychologistPage from "./components/ConsultationPage/PsychologistPage";
+import Navbar from "./components/Navbar";
 
 // Used for testing
 // import Test from "./test/Test";
@@ -12,8 +13,8 @@ import CommunityPage from "./components/CommunityPage/CommunityPage";
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
-      <main>
+      <Navbar />
+      <main className="pt-5">
         <Routes>
           {/* route to /landing */}
           <Route path="/landing" element={<LandingPage />} />
@@ -23,6 +24,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
+          {/* route to /consultation */}
+          <Route path="/consultation" element={<PsychologistPage />} />
 
           {/* route to /test */}
           {/* <Route path="/" element={<Test />} /> */}
