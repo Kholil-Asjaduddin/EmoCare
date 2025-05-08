@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import SignupPage from "./components/SignupPage/SignupPage";
 import LoginPage from "./components/LoginPage/LoginPage";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 import CommunityPage from "./components/CommunityPage/CommunityPage";
+import ChatbotPage from "./components/ChatbotPage/ChatbotPage";
 import PsychologistPage from "./components/ConsultationPage/PsychologistPage";
 import Navbar from "./components/Navbar";
 
@@ -22,10 +24,14 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           {/* route to /login */}
           <Route path="/login" element={<LoginPage />} />
+          {/* route to /profile */}
+          <Route path="/profile" element={<ProfilePage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
           {/* route to /consultation */}
           <Route path="/consultation" element={<PsychologistPage />} />
+          {/* route to /chatbot */}
+          <Route path="/chatbot" element={<ChatbotPage />} />
 
           {/* route to /test */}
           {/* <Route path="/" element={<Test />} /> */}
