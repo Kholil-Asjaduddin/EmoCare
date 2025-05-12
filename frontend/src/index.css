@@ -93,3 +93,31 @@ h1 {
 .text-teal {
   color: #03c988;
 }
+
+
+/* Custom scrollbar: hidden by default, appears on hover */
+.scrollbar-hidden-hover {
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hidden-hover:hover {
+scrollbar-width: thin;
+scrollbar-color: #9dc8dc transparent;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar {
+height: 0px; /* hide on Chrome */
+}
+
+.scrollbar-hidden-hover:hover::-webkit-scrollbar {
+height: 6px;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar-track {
+background: transparent;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar-thumb {
+background-color: #9dc8dc; 
+border-radius: 10px;
+}
