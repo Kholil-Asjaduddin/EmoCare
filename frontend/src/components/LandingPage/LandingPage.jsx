@@ -1,10 +1,10 @@
-import Navbar from "./Nav";
+import Nav from "./Nav";
 import HeroSection from "./HeroSection";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen w-full">
-      <Navbar />
+      <Nav />
       <HeroSection />
     </div>
   );

@@ -1,4 +1,15 @@
+import { useLocation } from 'react-router-dom';
+
 const Navbar = () => {
+  const location = useLocation();
+
+  // Define paths where the navbar should be hidden
+  const excludedPaths = ['/landing', '/login', '/signup', '/selectrole', '/psychologistprofile', '/profile'];
+
+  if (excludedPaths.includes(location.pathname)) {
+    return null;
+  }
+
   return (
     <header className="sticky top-[-2px] left-0 w-full h-[90px] flex bg-nav items-center px-8">
       {/* Navigation Links */}
