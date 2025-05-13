@@ -1,13 +1,9 @@
-import Navbar from "../Navbar";
 import MessageBubble from "./MessageBubble";
 import { IoSend } from "react-icons/io5";
 
 const ChatbotPage = () => {
     return (
         <div className="w-screen h-screen bg-light">
-            {/* Navbar */}
-            <Navbar />
-
             {/* Chat Container */}
             <div className="flex flex-col flex-grow items-center justify-center px-4 pt-20 w-full">
                 {/* Messages */}
