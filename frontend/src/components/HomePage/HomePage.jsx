@@ -3,7 +3,7 @@ import Consultations from "./Consultations";
 
 const HomePage = () => {
     return (
-        <div className="relative w-screen min-h-screen bg-light">
+        <div className="w-screen">
             {/* Contents Navigation */}
             <div className="absolute bottom-[30px] left-[60%] transform -translate-x-1/2">
                 <ContentsNav />
