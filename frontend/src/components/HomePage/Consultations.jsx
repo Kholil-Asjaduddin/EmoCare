@@ -2,7 +2,7 @@ import ConsultationCard from "./ConsultationCard";
 
 const Consultations = () => {
     return (
-        <div className="w-3/4">
+        <div className="w-300">
             {/* Booked Consultation */}
             <div className="mt-[-500px] ml-20">
                 <h3 className="text-2xl text-blue-light ml-3 mb-3">Booked Consultation</h3>
