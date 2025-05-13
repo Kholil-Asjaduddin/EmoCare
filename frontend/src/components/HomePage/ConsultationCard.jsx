@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const ConsultationCard = ({ date, time, name }) => {
     return (
         <div className={`p-4 mt-3 ml-5 min-w-[250px] scale-110 bg-[#EAF0F1] border border-[#9DC8DC] shadow-md rounded-3xl shadow`}>
@@ -7,5 +9,13 @@ const ConsultationCard = ({ date, time, name }) => {
         </div>
     );
 };
+
+
+ConsultationCard.propTypes = {
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
+ 
 
 export default ConsultationCard;
