@@ -9,14 +9,14 @@ const ContentsNav = () => {
     const navigate = useNavigate(); // Hook for navigation
 
     const features = [
-        { title: "Article", image: articleImg },
-        { title: "Video", image: videoImg },
-        { title: "Podcast", image: podcastImg },
+        { title: "Article", image: articleImg, path: "/content" },
+        { title: "Video", image: videoImg, path: "/content" },
+        { title: "Podcast", image: podcastImg, path: "/content" },
     ];
 
     return (
         <div className="mt-250 ml-[-5px]">
-            <h3 className="text-2xl text-blue-light ml-[-60px] mb-[-12px]">Mental Health Contents</h3>
+            <h3 className="text-2xl text-blue-light ml-[-180px] mb-[-12px]">Mental Health Contents</h3>
                 <div className="scale-70 flex flex-row space-x-30 ml-[-300px] translate-x-12 mb-[20px]">
                     {features.map((feature, index) => (
                         <div
