@@ -40,7 +40,7 @@ const ContentPage = ({ userRole }) => {
     ];
 
     return (
-        <div className="w-screen h-screen bg-light text-navy justify-items-center">
+        <div className="w-screen bg-light text-navy justify-items-center pt-14">
             <div className="flex gap-10">
                 <ContentContainer>
                     <ContentColumn title="Video">
