@@ -11,9 +11,9 @@ const Navbar = () => {
   }
 
   return (
-    <header className="sticky top-[-2px] left-0 w-full h-[90px] flex bg-nav items-center px-8">
+    <header className="fixed top-0  w-screen h-16 flex bg-nav items-center px-8">
       {/* Navigation Links */}
-      <nav className="flex gap-10 text-3xl font-bold">
+      <nav className="flex gap-10 text-2xl font-normal">
         <a href="/" className="text-navy px-4">
           Home
         </a>
@@ -29,7 +29,7 @@ const Navbar = () => {
       </nav>
 
       {/* Profile Icon */}
-      <div className="ml-auto w-[35px] h-[30px] bg-gray-300 border border-bg-light rounded-full"></div>
+      <div className="ms-auto size-9 bg-gray-300 border border-bg-light rounded-full"></div>
     </header>
   );
 };
