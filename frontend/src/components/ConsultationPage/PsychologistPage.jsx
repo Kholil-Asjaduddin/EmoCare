@@ -4,7 +4,7 @@ import SchedulePopup from "./SchedulePopup";
 
 const PsychologistPage = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
-  const [setSelectedPsychologist] = useState(null);
+  const [selectedPsychologist, setSelectedPsychologist] = useState(null);
 
   const handleOpenPopup = (psychologist) => {
     setSelectedPsychologist(psychologist);
