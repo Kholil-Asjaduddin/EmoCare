@@ -3,7 +3,7 @@ import LoginButton from "./LoginButton";
 const LoginForm = () => {
   return (
     <div className="scale-80 w-[500px] flex flex-col gap-6">
-      <h2 className="text-navy text-5xl font-bold text-center">Log In</h2>
+      <h2 className="text-navy text-5xl py-15 mt-[-120px] font-bold text-center">Log In</h2>
 
       {/* Email Input */}
       <div>
