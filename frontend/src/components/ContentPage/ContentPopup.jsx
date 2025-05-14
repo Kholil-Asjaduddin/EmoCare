@@ -1,12 +1,14 @@
 import { IoIosClose } from 'react-icons/io';
 import PropTypes from "prop-types";
+import { useState } from 'react';
 
 const ContentPopup = ({ onClose }) => {
+    const [selectedType, setSelectedType] = useState('Video');
     return (
-        <div className="scale-80 fixed top-1/2 left-1/2 w-[492px] h-[700px] bg-[#C6DFEA] z-[1000] rounded-xl shadow-lg transform -translate-x-1/2 -translate-y-1/2 overflow-hidden font-poppins">
+        <div className="scale-80 fixed top-1/2 left-1/2 w-[492px] h-[580px] bg-[#C6DFEA] z-[1000] rounded-xl shadow-lg transform -translate-x-1/2 -translate-y-1/2 overflow-hidden font-poppins">
             {/* Header */}
-            <div className="bg-[#9DC8DC] h-[80px] flex items-center justify-between px-6">
-                <h2 className="text-[#00337C] text-2xl font-medium">Add Content</h2>
+            <div className="bg-[#9DC8DC] h-[60px] flex items-center justify-between px-4">
+                <h2 className="text-[#00337C] text-xl font-medium">Add Content</h2>
                 <button onClick={onClose} className="cursor-pointer">
                     <IoIosClose size={36} color="#13005A" />
                 </button>
@@ -19,15 +21,33 @@ const ContentPopup = ({ onClose }) => {
                     <label className="block text-xl font-medium mb-2">Type</label>
                     <div className="flex gap-20 ml-9 text-lg">
                         <label className="flex items-center gap-2">
-                            <input type="radio" name="type" defaultChecked />
+                            <input
+                                type="radio"
+                                name="type"
+                                value="Video"
+                                checked={selectedType === 'Video'}
+                                onChange={(e) => setSelectedType(e.target.value)}
+                            />
                             Video
                         </label>
                         <label className="flex items-center gap-2">
-                            <input type="radio" name="type" />
+                            <input
+                                type="radio"
+                                name="type"
+                                value="Podcast"
+                                checked={selectedType === 'Podcast'}
+                                onChange={(e) => setSelectedType(e.target.value)}
+                            />
                             Podcast
                         </label>
                         <label className="flex items-center gap-2">
-                            <input type="radio" name="type" />
+                            <input
+                                type="radio"
+                                name="type"
+                                value="Article"
+                                checked={selectedType === 'Article'}
+                                onChange={(e) => setSelectedType(e.target.value)}
+                            />
                             Article
                         </label>
                     </div>
@@ -43,14 +63,16 @@ const ContentPopup = ({ onClose }) => {
                     />
                 </div>
 
-                {/* Title */}
-                <div>
-                    <label className="block text-xl mb-2">Title</label>
-                    <textarea
-                        className="w-full h-[80px] border border-black rounded-[32px] px-8 py-4 text-[#13005A] text-lg resize-none focus:outline-none"
-                        placeholder="Enter title"
-                    />
-                </div>
+                {/* Title (only for Video/Podcast) */}
+                {selectedType !== 'Article' && (
+                    <div>
+                        <label className="block text-xl mb-2">Title</label>
+                        <textarea
+                            className="w-full h-[80px] border border-black rounded-[32px] px-8 py-4 text-[#13005A] text-lg resize-none focus:outline-none"
+                            placeholder="Enter title"
+                        />
+                    </div>
+                )}
 
                 {/* Description
                 <div>

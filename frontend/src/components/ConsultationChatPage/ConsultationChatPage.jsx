@@ -3,7 +3,7 @@ import ChatSection from "./ChatSection";
 
 const ConsultationChatPage = () => {
     return (
-        <div className="w-screen h-screen bg-lightBlue flex flex-col">
+        <div className="w-screen h-screen flex flex-col">
             <div className="flex flex-row h-full">
                 <Sidebar />
                 <ChatSection />
