@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "serve": "node index.js",
+    "dev": "nodemon index.js",
     "build": "echo 'Building backend...'",
     "test": "echo 'Running backend tests...' && exit 0",
     "lint": "eslint .",
@@ -14,7 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.10"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.8",
