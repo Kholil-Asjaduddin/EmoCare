@@ -2,12 +2,10 @@ import ConsultationCard from "./ConsultationCard";
 
 const Consultations = () => {
     return (
-        <div className="w-300">
-            {/* Booked Consultation */}
-            <div className="mt-[-500px] ml-20">
-                <h3 className="text-2xl text-blue-light ml-3 mb-3">Booked Consultation</h3>
+        <div className="flex flex-col items-center">
+            <h3 className="text-2xl text-blue-light mb-5">Booked Consultation</h3>
 
-                <div className="flex flex-row gap-15 overflow-x-auto pb-6 mb-4 scrollbar-hidden-hover">
+                <div className="w-3/4 flex flex-row gap-15 overflow-x-auto pb-6 scrollbar-hidden-hover">
                     <ConsultationCard
                         date="1 Jan 2025"
                         time="12:00 - 14:00"
@@ -28,9 +26,13 @@ const Consultations = () => {
                         time="09:00 - 10:30"
                         name="Jkl, S.Psi"
                     />
+                    <ConsultationCard
+                        date="10 Jan 2025"
+                        time="09:00 - 10:30"
+                        name="Jkl, S.Psi"
+                    />
                     {/* Add more ConsultationCard components as needed */}
                 </div>
-            </div>
         </div>
     );
 };
