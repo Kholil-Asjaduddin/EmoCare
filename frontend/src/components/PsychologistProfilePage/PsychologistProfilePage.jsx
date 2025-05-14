@@ -12,7 +12,7 @@ const PsychologistProfilePage = () => {
                 </h1>
             </div>
 
-            {/* Right Side - Signup Form */}
+            {/* Right Side - Profile Form */}
             <div className="w-3/5 h-full flex items-center justify-center">
                 <ProfileForm />
             </div>
