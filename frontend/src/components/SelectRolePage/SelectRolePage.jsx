@@ -6,9 +6,8 @@ const SelectRolePage = () => {
     const navigate = useNavigate();
 
     const roles = [
-        {
-          title: "Client", image: clientIcon, width: 200, height: 160, path: "/home" },
-        { title: "Psychologist", image: psychologistIcon, width: 130, height: 160, path: "/home" },
+        { title: "Client", image: clientIcon, width: 200, height: 160, path: "/userprofile" }, 
+        { title: "Psychologist", image: psychologistIcon, width: 130, height: 160, path: "/psychologistprofile" },
     ];
 
     return (
