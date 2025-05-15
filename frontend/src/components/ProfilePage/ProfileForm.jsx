@@ -3,7 +3,7 @@ const ProfileForm = () => {
         <div className="scale-77 w-[500px] flex flex-col gap-6">
             <h2 className="text-navy text-5xl font-bold -mt-2">Profile</h2>
 
-            {/* Name Input */}
+            {/* Name */}
             <div>
                 <label className="block text-black text-xl mb-3 -ml-100">Name</label>
                 <input
@@ -13,7 +13,7 @@ const ProfileForm = () => {
                 />
             </div>
 
-            {/* Email Input */}
+            {/* Email */}
             <div>
                 <label className="block text-black text-xl mb-3 -ml-105">Email</label>
                 <input
@@ -23,7 +23,7 @@ const ProfileForm = () => {
                 />
             </div>
 
-            {/* Password Input */}
+            {/* Password */}
             <div>
                 <label className="block text-black text-xl mb-3 -ml-95">Password</label>
                 <input
