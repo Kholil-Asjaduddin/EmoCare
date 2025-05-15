@@ -22,21 +22,20 @@ const ContentPage = ({ userRole }) => {
     };
 
     const videos = [
-        { id: 1, contentLink: "https://www.youtube.com/watch?v=eUT9B2EfldM", title: "Content 1"},
-        { id: 2, contentLink: "https://www.youtube.com/watch?v=LnQU8n-vD1M&list=RDLnQU8n-vD1M&start_radio=1", title: "Content 2"},
-        { id: 3, contentLink: "https://www.youtube.com/watch?v=l1T3raMh_II&list=RDl1T3raMh_II&start_radio=1", title: "Content 3"}
+        { id: 1, contentLink: "https://www.youtube.com/watch?v=oxx564hMBUI", title: "What Is Mental Health?"},
+        { id: 2, contentLink: "https://www.youtube.com/watch?v=rkZl2gsLUp4", title: "How to manage your mental health"},
+        { id: 3, contentLink: "https://www.youtube.com/watch?v=3QIfkeA6HBY", title: "8 Things You Can Do To Improve Your Mental Health"}
     ];
 
     const podcasts = [
-        { id: 1, contentLink: "https://www.youtube.com/watch?v=eUT9B2EfldM", title: "Content 1"},
-        { id: 2, contentLink: "https://www.youtube.com/watch?v=LnQU8n-vD1M&list=RDLnQU8n-vD1M&start_radio=1", title: "Content 2"},
-        { id: 3, contentLink: "https://www.youtube.com/watch?v=l1T3raMh_II&list=RDl1T3raMh_II&start_radio=1", title: "Content 3"}
+        { id: 1, contentLink: "https://www.youtube.com/watch?v=9QnsB9SCzjw", title: "JIKA MENGALAMI DEPRESI, JANGAN DIPENDAM SENDIRI!"},
+        { id: 2, contentLink: "https://www.youtube.com/watch?v=q5x1SNjRQwY", title: "Buat yang Lagi Stress.."},
+        { id: 3, contentLink: "https://www.youtube.com/watch?v=GOqEl4ADyVk", title: "OM HOLLAND Gets Vulnerable About Mental Health & Overcoming Social Anxiety"}
     ];
 
     const articles = [
-        { id: 1, contentLink: "https://en.tempo.co/read/2006674/a-guide-to-2025-vesak-day-in-indonesia-traditions-and-celebrations"},
-        { id: 2, contentLink: "https://en.antaranews.com/news/354937/borobudur-symbolizes-harmony-between-religious-communities-zon"},
-        { id: 3, contentLink: "https://en.antaranews.com/news/354845/east-kalimantan-buddhists-pray-for-smooth-nusantara-development"}
+        { id: 1, contentLink: "https://www.edsurge.com/news/2025-05-15-parents-and-teens-agree-social-media-can-be-harmful-but-how-much"},
+        { id: 2, contentLink: "https://who13.com/hello-iowa/how-social-media-affects-mental-health/"}
     ];
 
     return (
