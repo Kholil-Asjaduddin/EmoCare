@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./components/LandingPage/LandingPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 import SignupPage from "./components/SignupPage/SignupPage";
 import SelectRolePage from "./components/SelectRolePage/SelectRolePage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import HomePage from "./components/HomePage/HomePage";
 import ContentPage from "./components/ContentPage/ContentPage";
 import CommunityPage from "./components/CommunityPage/CommunityPage";
 import CommunityConvoPage from "./components/CommunityConvoPage/CommunityConvoPage";
@@ -29,8 +28,9 @@ function App() {
       <Navbar />
       <main className="flex flex-col items-center w-screen h-full">
         <Routes>
-          {/* route to /landing */}
-          <Route path="/landing" element={<LandingPage />} />
+          {/* route to landing or home page */}
+          <Route path="/" element={<ProtectedRoute />} />
+          
           {/* route to /signup */}
           <Route path="/signup" element={<SignupPage />} />
           {/* route to /selectrole */}
@@ -43,8 +43,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* route to /profile */}
           <Route path="/profile" element={<ProfilePage />} />
-          {/* route to /home */}
-          <Route path="/home" element={<HomePage />} />
            {/* route to /content */}
           <Route path="/content" element={<ContentPage />} />
           {/* route to /community */}
