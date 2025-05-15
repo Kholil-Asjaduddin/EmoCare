@@ -47,7 +47,7 @@ const LoginForm = ({ onLoginSuccess }) => {
       </div>
 
       {/* Error Message */}
-      {error && <p className="text-red-500 text-center">Gagal login. Periksa kembali email dan password Anda!</p>}
+      {error && <p className="text-red-500 text-center">Failed to login. Please double check your email and password!</p>}
 
       {/* Login Button */}
       <div className="flex justify-end items-center mt-6 w-full pr-25">

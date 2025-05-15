@@ -1,6 +1,17 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SignupForm from "./SignupForm";
 
 const SignupPage = () => {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       {/* Left Side - Welcome Message */}
@@ -11,9 +22,9 @@ const SignupPage = () => {
         </h1>
       </div>
 
-      {/* Right Side - Signup Form */}
+      {/* Right Side - Signup Form atau Redirect */}
       <div className="w-3/5 h-full flex items-center justify-center">
-        <SignupForm />
+        {!user ? <SignupForm onSignupSuccess={setUser} /> : <p className="text-2xl text-navy">Redirecting...</p>}
       </div>
     </div>
   );
