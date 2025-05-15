@@ -11,7 +11,7 @@ const ProtectedRoute = () => {
     onAuthStateChanged(auth, (loggedInUser) => {
       setUser(loggedInUser);
     });
-  }, [auth]); // Tambahkan 'auth' agar sesuai dengan ESLint
+  }, [auth]);
 
   return user ? <HomePage /> : <LandingPage />;
 };

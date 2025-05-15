@@ -47,7 +47,6 @@ function App() {
           <Route path="/content" element={<ContentPage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
-
           {/* route to /communityconvo */}
           <Route path="/communityconvo" element={<CommunityConvoPage />} />
           {/* route to /chatbot */}

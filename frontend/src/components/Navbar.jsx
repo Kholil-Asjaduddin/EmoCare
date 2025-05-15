@@ -14,7 +14,7 @@ const Navbar = () => {
     <header className="fixed top-0  w-screen h-16 flex bg-nav items-center px-8">
       {/* Navigation Links */}
       <nav className="flex gap-10 text-2xl font-normal">
-        <a href="/home" className="text-navy px-4">
+        <a href="/" className="text-navy px-4">
           Home
         </a>
         <a href="/community" className="text-navy px-4">
