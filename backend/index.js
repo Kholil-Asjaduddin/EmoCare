@@ -1,7 +1,14 @@
-require('dotenv').config();
+const express = require('express');
+const dotenv = require("dotenv");
 
-var express = require('express');
-var app = express();
+const accountRoutes = require("./routes/accountRoutes");
+
+const app = express();
+app.use(express.json());
+
+dotenv.config();
+
+app.use("/account", accountRoutes);
 
 // Run the server
 const PORT = process.env.PORT || 3000;
