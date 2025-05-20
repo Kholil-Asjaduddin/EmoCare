@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const OpenConsultationPageButton = ({ onClick, disabled, bgColor }) => {
+const OpenConsultationPageButton = ({ disabled, bgColor }) => {
   const navigate = useNavigate();
   return (
     <button
