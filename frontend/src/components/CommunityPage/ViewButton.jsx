@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const ViewButton = ({ onClick }) => {
+const ViewButton = () => {
   const navigate = useNavigate();
   return (
     <button

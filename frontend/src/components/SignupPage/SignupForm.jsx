@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SignupButton from "./SignupButton";
 
@@ -7,8 +8,12 @@ const SignupForm = ({ onSignupSuccess }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
+    
     event.preventDefault();
+
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/account/signup`, {
         method: "POST",
@@ -20,13 +25,14 @@ const SignupForm = ({ onSignupSuccess }) => {
       if (!response.ok) throw new Error(data.error || "Signup failed");
 
       onSignupSuccess(data);
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="scale-80 w-[500px] flex flex-col gap-6">
+    <form className="scale-80 w-[500px] flex flex-col gap-6">
       <h2 className="text-navy text-5xl py-15 mt-[-120px] font-bold text-center">Sign Up</h2>
 
       {/* Email Input */}

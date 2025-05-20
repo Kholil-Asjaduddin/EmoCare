@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import CommunityCard from "./CommunityCard";
-import CommunityConvoPage from "../CommunityConvoPage/CommunityConvoPage";
 
 const CommunityPage = () => {
   const [communities, setCommunities] = useState([]);
