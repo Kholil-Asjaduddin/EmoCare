@@ -28,8 +28,11 @@ const Navbar = () => {
         </a>
       </nav>
 
+      <div className='flex items-end gap-4 ml-auto'>
       {/* Profile Icon */}
-      <div className="ms-auto size-9 bg-gray-300 border border-bg-light rounded-full"></div>
+        <p className='mb-1 text-lg'>Sam</p>
+        <img src='https://imgs.search.brave.com/s-FdOtiJTvkBr0HYUw4f3vZj06rt6KUs5reDU36P13Q/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQx/Nzc1MDA1MS9waG90/by9sYXJnZS1tYW4t/bWFraW5nLWZ1bm55/LXN1cnByaXNlZC1m/YWNlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz10cXdrQS04/YnpLU1dTeHNFMXNS/VWNGWWo3QjBPZFFp/N1E4d29lRTBoQnZn/PQ' className="ms-auto size-9 bg-gray-300 border border-bg-light rounded-full" />
+      </div>
     </header>
   );
 };

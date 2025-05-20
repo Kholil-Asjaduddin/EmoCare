@@ -10,7 +10,6 @@ const PsychologistCard = ({
   name,
   specialist,
   experience,
-  fee,
   isBooked,
   isSessionTime,
   onOpenSchedule,
@@ -34,9 +33,6 @@ const PsychologistCard = ({
             <p className="font-normal text-xl">
               {experience} {experience > 1 ? "years" : "year"}
             </p>
-            <p className="font-medium text-2xl text-blue-light">
-              Rp.{fee.toLocaleString("id-ID")}
-            </p>
           </div>
         </div>
       </div>
@@ -48,7 +44,7 @@ const PsychologistCard = ({
           <div className="flex flex-col gap-3">
             <div className="flex flex-row gap-2 text-2xl text-blue-light">
               <p className="font-bold">Booked for:</p>
-              <p className="font-normal">1 Jan 2025</p>
+              <p className="font-normal">16 May 2025</p>
             </div>
             <OpenConsultationPageButton
               onClick={onOpenConsultationPage}
@@ -67,7 +63,6 @@ PsychologistCard.propTypes = {
   name: PropTypes.string.isRequired,
   specialist: PropTypes.string.isRequired,
   experience: PropTypes.number.isRequired,
-  fee: PropTypes.number.isRequired,
   isBooked: PropTypes.bool.isRequired,
   isSessionTime: PropTypes.bool.isRequired,
   onOpenSchedule: PropTypes.func.isRequired,

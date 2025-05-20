@@ -8,7 +8,7 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/login");
+      navigate("/selectrole");
     }
   }, [user, navigate]);
 

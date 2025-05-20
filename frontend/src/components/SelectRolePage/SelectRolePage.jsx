@@ -27,7 +27,7 @@ const SelectRolePage = () => {
                         <div
                             key={index}
                             onClick={() => navigate(role.path)}
-                            className="w-[300px] h-[200px] bg-[#509FBF] border border-[#509FBF] shadow-md rounded-[50px] flex flex-col items-center p-5 cursor-pointer hover:bg-[#d6e4eb] transition-all"
+                            className="w-[300px] h-[200px] bg-[#d6e4eb] border border-[#509FBF] shadow-md rounded-[50px] flex flex-col items-center p-5 cursor-pointer hover:bg-[#509FBF] transition-all"
                         >
                             <img
                                 src={role.image}
