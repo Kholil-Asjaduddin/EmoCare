@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CommunityCard from "./CommunityCard";
+import CommunityConvoPage from "../CommunityConvoPage/CommunityConvoPage";
 
 const CommunityPage = () => {
   const [communities, setCommunities] = useState([]);
@@ -9,7 +10,7 @@ const CommunityPage = () => {
     const fetchCommunities = async () => {
       const data = [
         { id: 1, name: "Community 1", members: 50, isJoined: false },
-        { id: 2, name: "Community 2", members: 75, isJoined: true },
+        { id: 2, name: "Community 2", members: 2, isJoined: true },
         { id: 3, name: "Community 3", members: 75, isJoined: true },
       ];
       setCommunities(data);
@@ -47,7 +48,7 @@ const CommunityPage = () => {
           name={community.name}
           members={community.members}
           isJoined={community.isJoined}
-          onView={() => handleView(community.id)}
+          onView={() => handleView(community.id)} 
         />
       ))}
     </div>

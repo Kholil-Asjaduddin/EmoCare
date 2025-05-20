@@ -17,9 +17,8 @@ const PsychologistPage = () => {
   };
 
   const psychologists = [
-    { id: 1, profilePhotoUrl: "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg", name: "Dr. Alice", specialist: "Anxiety, Trauma", experience: 10, fee: 750000, isBooked: true, isSessionTime: false },
-    { id: 2, profilePhotoUrl: "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg", name: "Dr. Bob", specialist: "Stress Management", experience: 8, fee: 850000, isBooked: true, isSessionTime: true },
-    { id: 3, profilePhotoUrl: "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg", name: "Dr. Charlie", specialist: "Depression", experience: 12, fee: 1000000, isBooked: false, isSessionTime: false },
+    { id: 2, profilePhotoUrl: "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg", name: "Dr. Alice", specialist: "Stress Management", experience: 8, isBooked: true, isSessionTime: true },
+    { id: 3, profilePhotoUrl: "https://imgs.search.brave.com/4lctyMF-lPDLrEI1H-maKo97o7htpmU0aX7A2GBkdoE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYWNlLXlvdW5n/LWhhbmRzb21lLWJ1/c2luZXNzbWFuXzI1/MTEzNi0zMTI0OS5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw", name: "Dr. Charlie", specialist: "Depression", experience: 12, isBooked: false, isSessionTime: false },
   ];
 
   return (

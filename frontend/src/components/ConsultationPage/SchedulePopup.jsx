@@ -29,7 +29,7 @@ const SchedulePopup = ({ isVisible, profilePhotoUrl, onClose }) => {
   const [weekOffset, setWeekOffset] = useState(0);
 
   if (!isVisible) return null;
-
+  profilePhotoUrl = profilePhotoUrl || "https://imgs.search.brave.com/4lctyMF-lPDLrEI1H-maKo97o7htpmU0aX7A2GBkdoE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYWNlLXlvdW5n/LWhhbmRzb21lLWJ1/c2luZXNzbWFuXzI1/MTEzNi0zMTI0OS5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw";
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm">
       <div className="w-100 h-4/5 flex flex-col bg-light">
@@ -48,8 +48,8 @@ const SchedulePopup = ({ isVisible, profilePhotoUrl, onClose }) => {
               <img className="size-25 object-cover rounded-2xl" src={profilePhotoUrl} alt="Profile Photo" />
             </div>
             <div>
-              <p className="text-4xl font-normal text-black">Xyz, S.Psi</p>
-              <p className="text-lg text-black">Anxiety, Trauma, Stress</p>
+              <p className="text-4xl font-normal text-black">Dr. Charlie</p>
+              <p className="text-lg text-black">Depression</p>
               <div className="flex items-center text-black gap-2">
                 <img className="size-5" src={BriefcaseIcon} alt="Briefcase Icon" />
                 <span className="text-md">12 years</span>

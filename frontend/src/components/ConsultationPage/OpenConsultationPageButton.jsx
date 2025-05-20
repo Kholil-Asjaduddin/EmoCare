@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const OpenConsultationPageButton = ({ onClick, disabled, bgColor }) => {
+  const navigate = useNavigate();
   return (
     <button
-      onClick={onClick}
+      onClick={() => navigate("/consultationchat")}
       disabled={disabled}
       style={{
         backgroundColor: bgColor,
