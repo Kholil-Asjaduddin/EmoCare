@@ -8,26 +8,28 @@ const db = getDatabase(firebaseApp);
 const dbRef = ref(db);
 
 const findUserInSubCollections = async (subCollectionName, userId) => {
-  get(child(dbRef, `users/${subCollectionName}/${userId}`)).then((snapshot) => {
-    if (snapshot.exists()) {
+  try {
+    const snapshot = await get(child(dbRef, `users/${subCollectionName}`));
+    if (snapshot.hasChild(userId)) {
       return true;
     } else {
       return false;
     }
-  }).catch((error) => {
+  } catch (error) {
     console.error(error);
-  });
+    return false;
+  }
 };
 
 
 export const loginUser = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
+    
     const clientSnapshot = await findUserInSubCollections("clients", userCredential.user.uid);
     const psychogistSnapshot = await findUserInSubCollections("psychogist", userCredential.user.uid);
     const userSaved = clientSnapshot || psychogistSnapshot;
-
+    
     return { uid: userCredential.user.uid, email: userCredential.user.email, userSaved: userSaved };
   } catch (error) {
     throw new Error(error.message);
