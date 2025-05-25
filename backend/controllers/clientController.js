@@ -1,7 +1,7 @@
 const { db } = require("../config/firebaseAdmin");
 const Client = require("../models/client");
 
-const saveClientData = async (req, res) => {
+const saveClientProfile = async (req, res) => {
     try {
         const { userId, username, photoBase64 } = req.body;
 
@@ -19,4 +19,4 @@ const saveClientData = async (req, res) => {
     }
 };
 
-module.exports = { saveClientData };
+module.exports = { saveClientProfile };
