@@ -14,8 +14,9 @@ const signup = async (req, res) => {
     const userRecord = await auth.createUser({
       email: newAccount.email,
       password: newAccount.password,
+      emailVerified: true
     });
-    console.log("User record created:", userRecord);
+    
     res.status(201).json({
       message: "Account created successfully",
       userId: userRecord.uid,
