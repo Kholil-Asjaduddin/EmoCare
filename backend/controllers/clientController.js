@@ -6,16 +6,16 @@ const saveClientData = async (req, res) => {
         const { userId, username, photoBase64 } = req.body;
 
         if (!userId || !username || !photoBase64) {
-            return res.status(400).json({ error: "User ID, username, and photo are required" });
+            return res.status(400).json({ status: 400, error: "User ID, username, and photo are required" });
         }
 
         const newClient = new Client(userId, username, photoBase64);
 
         await db.ref(`clients/${userId}`).set(newClient);
 
-        res.status(201).json({ message: "Client data saved successfully", userId, username });
+        res.status(201).json({ status: 201, userId, username, message: "Client data saved successfully" });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ status: 500, error: error.message });
     }
 };
 
