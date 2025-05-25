@@ -75,7 +75,7 @@ const ProfileForm = () => {
                 <label className="block text-black text-xl mb-1">Name</label>
                 <input
                     id="username"
-                    type="name"
+                    type="text"
                     value={username}
                     onChange={handleUsernameChange}
                     className="w-full h-[65px] border border-black rounded-4xl px-8 text-navy text-lg focus:outline-none"
