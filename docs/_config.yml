@@ -1,0 +1,10 @@
+title: EmoCare
+description: >- 
+  Platform inovatif yang menyediakan dukungan kesehatan mental terjangkau, mudah diakses, 
+  memungkinkan interaksi jarak jauh dengan profesional dan komunitas, 
+  serta memanfaatkan kecerdasan buatan untuk memberikan saran sesuai keluhan kesehatan mental pengguna.
+
+# Build settings
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one

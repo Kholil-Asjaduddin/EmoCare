@@ -1,7 +1,7 @@
-# Apa-Aja-Dulu
-Kerenkan hidupmu
+# EmoCare
+Emosi Terjaga, Kesehatan Terpelihara
 
-Kelompok Apa Aja
+Kelompok apa yaa
 
 Ketua Kelompok: Kholil Asjaduddin - 22/504792/TK/55224
 

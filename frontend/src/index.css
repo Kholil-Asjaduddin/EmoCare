@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.bg-light {
+  background-color: #c6dfea;
+}
+
+.bg-nav {
+  background-color: #9dc8dc;
+}
+
+.bg-navy {
+  background-color: #13005a;
+}
+
+.bg-blue-dark {
+  background-color: #00337c;
+}
+
+.bg-blue-light {
+  background-color: #509fbf;
+}
+
+.bg-teal {
+  background-color: #03c988;
+}
+
+.bg-red-broken {
+  background-color: #d88b85;
+}
+
+.text-navy {
+  color: #13005a;
+}
+
+.text-blue-dark {
+  color: #00337c;
+}
+
+.text-blue-light {
+  color: #1c82ad;
+}
+
+.text-teal {
+  color: #03c988;
+}
+
+
+/* Custom scrollbar: hidden by default, appears on hover */
+.scrollbar-hidden-hover {
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hidden-hover:hover {
+scrollbar-width: thin;
+scrollbar-color: #9dc8dc transparent;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar {
+height: 0px; /* hide on Chrome */
+}
+
+.scrollbar-hidden-hover:hover::-webkit-scrollbar {
+height: 6px;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar-track {
+background: transparent;
+}
+
+.scrollbar-hidden-hover::-webkit-scrollbar-thumb {
+background-color: #9dc8dc; 
+border-radius: 10px;
+}
