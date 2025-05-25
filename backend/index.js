@@ -11,12 +11,14 @@ dotenv.config();
 const accountRoutes = require("./routes/accountRoutes");
 const clientRoutes = require("./routes/clientRoute");
 const psychologistRoutes = require("./routes/psychologistRoutes");
+const communityRoutes = require("./routes/communityRoutes");
 
 const chatbotRoutes = require("./routes/chatbotRoutes");
 
 app.use("/account", accountRoutes);
 app.use("/client", clientRoutes);
 app.use("/psychologist", psychologistRoutes);
+app.use("/community", communityRoutes);
 app.use("/chatbot", chatbotRoutes);
 
 // Run the server
