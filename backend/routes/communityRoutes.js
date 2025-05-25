@@ -1,8 +1,9 @@
 const express = require("express");
-const { createCommunity } = require("../controllers/communityController");
+const { createCommunity, joinCommunity } = require("../controllers/communityController");
 
 const router = express.Router();
 
 router.post("/create", createCommunity);
+router.post("/join", joinCommunity);
 
 module.exports = router;
