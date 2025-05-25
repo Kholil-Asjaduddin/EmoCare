@@ -11,7 +11,7 @@ const saveClientData = async (req, res) => {
 
         const newClient = new Client(userId, username, photoBase64);
 
-        await db.ref(`clients/${userId}`).set(newClient);
+        await db.ref(`users/clients/${userId}`).set(newClient);
 
         res.status(201).json({ status: 201, userId, username, message: "Client data saved successfully" });
     } catch (error) {
