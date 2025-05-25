@@ -1,14 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SaveButton from "./SaveButton";
 import { getCurrentUser } from "../../services/authService";
 
 const ProfileForm = () => {
+    const [user, setUser] = useState(null);
     const [username, setUsername] = useState('');
     const [photoBase64, setPhotoBase64] = useState("");
     const [error, setError] = useState(null);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const currentUser = await getCurrentUser();
+            setUser(currentUser);
+        };
+        fetchUser();
+    }, []);
 
     const handleUsernameChange = (e) => {
         const value = e.target.value;
@@ -31,7 +40,10 @@ const ProfileForm = () => {
 
 
     const handleSave = async () => {
-        const user = getCurrentUser();
+        if (!user) {
+            setError("User not authenticated");
+            return;
+        }
 
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/client/save-client`, {
