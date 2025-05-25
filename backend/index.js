@@ -9,9 +9,12 @@ app.use(express.json());
 dotenv.config();
 
 const accountRoutes = require("./routes/accountRoutes");
+const clientRoutes = require("./routes/clientRoute");
+
 const chatbotRoutes = require("./routes/chatbotRoutes");
 
 app.use("/account", accountRoutes);
+app.use("/client", clientRoutes);
 app.use("/chatbot", chatbotRoutes);
 
 // Run the server
