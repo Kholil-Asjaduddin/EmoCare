@@ -54,4 +54,36 @@ const joinCommunity = async (req, res) => {
     }
 };
 
-module.exports = { createCommunity, joinCommunity };
+const leaveCommunity = async (req, res) => {
+    try {
+        const { communityId, userId } = req.body;
+
+        if (!communityId || !userId) {
+            return res.status(400).json({ status: 400, error: "Community ID and user ID are required" });
+        }
+
+        const communityRef = db.ref(`communities/${communityId}`);
+        const communitySnapshot = await communityRef.once("value");
+
+        if (!communitySnapshot.exists()) {
+            return res.status(404).json({ status: 404, error: "Community not found" });
+        }
+
+        const communityData = communitySnapshot.val();
+
+        if (!communityData.members.includes(userId)) {
+            return res.status(400).json({ status: 400, error: "User is not a member of this community" });
+        }
+
+        communityData.members = communityData.members.filter(memberId => memberId !== userId);
+        communityData.memberCount -= 1;
+
+        await communityRef.set(communityData);
+
+        res.status(200).json({ status: 200, communityId, message: "Left community successfully" });
+    } catch (error) {
+        res.status(500).json({ status: 500, error: error.message });
+    }
+};
+
+module.exports = { createCommunity, joinCommunity, leaveCommunity };
