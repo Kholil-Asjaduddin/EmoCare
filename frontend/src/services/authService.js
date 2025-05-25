@@ -1,7 +1,6 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, child, get } from "firebase/database";
 import firebaseApp from "../firebaseConfig";
-import { use } from "react";
 
 const auth = getAuth(firebaseApp);
 
@@ -30,6 +29,7 @@ const checkUserAvailability = async (userId) => {
     
     return { uid: userId, userSaved: userSaved };
   } catch (error) {
+    console.error(error.message);
     throw new Error(error.message);
   }
 }
@@ -42,6 +42,7 @@ export const loginUser = async (email, password) => {
     
     return userSnapshot;
   } catch (error) {
+    console.error(error.message);
     throw new Error(error.message);
   }
 };

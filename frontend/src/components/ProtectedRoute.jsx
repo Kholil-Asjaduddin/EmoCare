@@ -19,7 +19,7 @@ const ProtectedRoute = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [auth]);
 
   return user === undefined ? null : user ? <HomePage /> : <LandingPage />;
 };

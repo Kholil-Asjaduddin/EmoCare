@@ -61,7 +61,8 @@ const ProfileForm = () => {
                 navigate("/");
             }
         } catch (error) {
-            setError(err.message);
+            setError(error.message);
+            console.error("Error saving profile:", error);
         }
     }
 
