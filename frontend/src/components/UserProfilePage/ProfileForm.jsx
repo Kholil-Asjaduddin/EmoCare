@@ -6,6 +6,7 @@ import { getCurrentUser } from "../../services/authService";
 const ProfileForm = () => {
     const [username, setUsername] = useState('');
     const [photoBase64, setPhotoBase64] = useState("");
+    const [error, setError] = useState(null);
 
     const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ const ProfileForm = () => {
                 navigate("/");
             }
         } catch (error) {
-            console.error("Error saving profile:", error);
+            setError(err.message);
         }
     }
 
@@ -94,6 +95,9 @@ const ProfileForm = () => {
                     />
                 </label>
             </div>
+
+            {/* Error Message */}
+            {error && <p className="text-red-500 text-center">Failed to login. Please double check your email and password!</p>}
 
             {/* Save Button */}
             <div className="flex justify-end items-center w-full mt-6 mx-[-40px] pr-25">

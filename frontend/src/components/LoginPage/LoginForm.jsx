@@ -16,7 +16,6 @@ const LoginForm = ({ onLoginSuccess }) => {
 
     try {
       const user = await loginUser(email, password);
-
       if (!user.userSaved) {
         navigate("/selectrole");
       }
@@ -58,7 +57,6 @@ const LoginForm = ({ onLoginSuccess }) => {
 
       {/* Error Message */}
       {error && <p className="text-red-500 text-center">Failed to login. Please double check your email and password!</p>}
-            {error && <p className="text-red-500 text-center">{error}</p>}
 
       {/* Login Button */}
       <div className="flex justify-end items-center mt-6 w-full pr-25">
