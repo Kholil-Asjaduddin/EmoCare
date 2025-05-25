@@ -42,8 +42,11 @@ const ProfileForm = () => {
                     photoBase64
                 })
             });
-            
-            navigate("/");
+
+            if (response.status == 201)
+            {
+                navigate("/");
+            }
         } catch (error) {
             console.error("Error saving profile:", error);
         }
