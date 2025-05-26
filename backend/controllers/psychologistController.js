@@ -28,9 +28,13 @@ const updatePsychologistProfile = async (req, res) => {
             return res.status(400).json({ status: 400, error: "User ID, username, specialization, and experience are required" });
         }
 
-        const existingUser = await findUserById(userId);
-        if (!existingUser) {
+        const userData = await findUserById(userId);
+        if (!userData) {
             return res.status(404).json({ status: 404, error: "User not found" });
+        }
+
+        if (userData.role !== "psychologist") {
+            return res.status(403).json({ status: 403, error: "User is not a psychologist" });
         }
 
         const updatedPsychologist = new Psychologist(userId, username, specialization, experience, photoBase64);
