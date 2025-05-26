@@ -5,8 +5,8 @@ const savePsychologistProfile = async (req, res) => {
     try {
         const { userId, username, specialization, experience, photoBase64 } = req.body;
 
-        if (!userId || !username || !specialization || !experience || !photoBase64) {
-            return res.status(400).json({ status: 400, error: "User ID, username, specialization, experience, and photo are required" });
+        if (!userId || !username || !specialization || !experience) {
+            return res.status(400).json({ status: 400, error: "User ID, username, specialization, and experience are required" });
         }
 
         const newPsychologist = new Psychologist(userId, username, specialization, experience, photoBase64);
