@@ -5,8 +5,8 @@ const saveClientProfile = async (req, res) => {
     try {
         const { userId, username, photoBase64 } = req.body;
 
-        if (!userId || !username || !photoBase64) {
-            return res.status(400).json({ status: 400, error: "User ID, username, and photo are required" });
+        if (!userId || !username) {
+            return res.status(400).json({ status: 400, error: "User ID and username are required" });
         }
 
         const newClient = new Client(userId, username, photoBase64);
