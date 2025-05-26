@@ -28,9 +28,13 @@ const updateClientProfile = async (req, res) => {
             return res.status(400).json({ status: 400, error: "User ID and username are required" });
         }
 
-        const existingUser = await findUserById(userId);
-        if (!existingUser) {
+        const userData = await findUserById(userId);
+        if (!userData) {
             return res.status(404).json({ status: 404, error: "User not found" });
+        }
+
+        if (userData.role !== "client") {
+            return res.status(403).json({ status: 403, error: "User is not a client" });
         }
 
         const updatedClient = new Client(userId, username, photoBase64);
