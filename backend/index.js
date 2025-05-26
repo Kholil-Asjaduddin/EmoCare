@@ -12,6 +12,7 @@ const accountRoutes = require("./routes/accountRoutes");
 const clientRoutes = require("./routes/clientRoute");
 const psychologistRoutes = require("./routes/psychologistRoutes");
 const communityRoutes = require("./routes/communityRoutes");
+const communityChatRoutes = require("./routes/communityChatRoutes");
 
 const chatbotRoutes = require("./routes/chatbotRoutes");
 
@@ -19,6 +20,7 @@ app.use("/account", accountRoutes);
 app.use("/client", clientRoutes);
 app.use("/psychologist", psychologistRoutes);
 app.use("/community", communityRoutes);
+app.use("/community-chat", communityChatRoutes);
 app.use("/chatbot", chatbotRoutes);
 
 // Run the server
