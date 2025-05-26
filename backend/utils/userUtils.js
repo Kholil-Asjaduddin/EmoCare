@@ -5,9 +5,9 @@ const findUserById = async (userId) => {
     const psychologistSnapshot = await db.ref(`users/psychologists/${userId}`).once("value");
 
     if (clientSnapshot.exists()) {
-        return clientSnapshot.val().username;
+        return { user: clientSnapshot.val(), role: "client" };
     } else if (psychologistSnapshot.exists()) {
-        return psychologistSnapshot.val().username;
+        return { user: psychologistSnapshot.val(), role: "psychologist" };
     } else {
         return null;
     }

@@ -7,7 +7,7 @@ const sendMessage = async (req, res) => {
     try {
         const { communityId, userId, text } = req.body;
 
-        if (!communityId || !userId || !text) {
+        if (!communityId.trim() || !userId.trim() || !text.trim()) {
             return res.status(400).json({ status: 400, error: "Community ID, user ID, and text are required" });
         }
 
@@ -16,19 +16,19 @@ const sendMessage = async (req, res) => {
             return res.status(404).json({ status: 404, error: "Community not found" });
         }
 
-        if (!communityData.members.includes(userId)) {
-            return res.status(403).json({ status: 403, error: "User is not a member of this community" });
+        const userData  = await findUserById(userId);
+        if (!userData ) {
+            return res.status(404).json({ status: 404, error: "User not found" });
         }
 
-        const senderName = await findUserById(userId);
-        if (!senderName) {
-            return res.status(404).json({ status: 404, error: "User name not found" });
+        if (!communityData.members.includes(userId)) {
+            return res.status(403).json({ status: 403, error: "User is not a member of this community" });
         }
 
         const messageRef = db.ref(`communityChats/${communityId}/messages`).push();
         const messageId = messageRef.key;
 
-        const newMessage = new CommunityChat(messageId, communityId, senderName, text, Date.now());
+        const newMessage = new CommunityChat(messageId, communityId, userId, text, Date.now());
 
         await messageRef.set(newMessage);
 

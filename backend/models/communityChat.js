@@ -1,8 +1,8 @@
 class CommunityChat {
-    constructor(messageId, communityId, senderName, text, timestamp) {
+    constructor(messageId, communityId, senderId, text, timestamp) {
         this.messageId = messageId;
         this.communityId = communityId;
-        this.senderName = senderName;
+        this.senderId = senderId;
         this.text = text;
         this.timestamp = timestamp;
     }
