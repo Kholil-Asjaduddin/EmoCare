@@ -6,7 +6,7 @@ const Nav = () => {
       <nav className="justify-start items-center p-5">
           <ul className="flex gap-15 px-8 text-navy text-xl font-semibold">
               <li>
-                  <Link to="/home" className="font-bold text-navy">
+                  <Link to="/" className="font-bold text-navy">
                       Home
                   </Link>
               </li>

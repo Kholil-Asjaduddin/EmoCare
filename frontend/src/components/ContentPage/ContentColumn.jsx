@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const ContentColumn = ({ title, children }) => {
     return (
-        <div className="flex flex-col flex-1 me-10">
+        <div className="flex flex-col flex-1 mt-10">
             {/* Fixed Title */}
             <h2 className="text-2xl text-[#10004B] font-semibold mt-[-20px] mb-5">{title}</h2>
 

@@ -14,6 +14,11 @@ import ConsultationChatPage from "./components/ConsultationChatPage/Consultation
 import PsychologistSessionPage from "./components/PsychologistSessionPage/PsychologistSessionPage";
 import PsychologistProfilePage from "./components/PsychologistProfilePage/PsychologistProfilePage";
 import UserProfilePage from "./components/UserProfilePage/UserProfilePage";
+//import ContentPage from "./pages/ContentPage";
+import VideoPage from "./components/ContentPage/VideoPage/VideoPage";
+import PodcastPage from "./components/ContentPage/PodcastPage/PodcastPage";
+import ArticlePage from "./components/ContentPage/ArticlePage/ArticlePage";
+
 
 import Navbar from "./components/Navbar";
 
@@ -43,7 +48,13 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* route to /profile */}
           <Route path="/profile" element={<ProfilePage />} />
-           {/* route to /content */}
+          {/* route to /video */}
+          <Route path="/video" element={<VideoPage />} />
+          {/* route to /podcast */}
+          <Route path="/podcast" element={<PodcastPage />} />
+          {/* route to /article */}
+          <Route path="/article" element={<ArticlePage />} />
+          {/* route to /content */}
           <Route path="/content" element={<ContentPage />} />
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
