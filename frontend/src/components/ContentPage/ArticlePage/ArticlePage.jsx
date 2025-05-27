@@ -1,29 +1,5 @@
-// import ArticleItem from "./ArticleItem";
-
-// const ArticlePage = () => {
-//   const articles = [
-//         { id: 1, contentLink: "https://www.edsurge.com/news/2025-05-15-parents-and-teens-agree-social-media-can-be-harmful-but-how-much"},
-//         { id: 2, contentLink: "https://who13.com/hello-iowa/how-social-media-affects-mental-health/"}
-//     ];
-
-//   return (
-//     <div className="pt-14 px-6">
-//       <h2 className="text-2xl text-[#10004B] font-semibold mt-[-20px] mb-5">Article</h2>
-//       <div className="grid gap-4">
-//         {articles.map((article) => (
-//           <ArticleItem key={article.id} {...article} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ArticlePage;
-
-
 import PropTypes from "prop-types";
 import ContentContainer from '../ContentContainer';
-import ContentColumn from '../ContentColumn';
 import ArticleItem from "./ArticleItem";
 import { useState } from 'react';
 import ContentPopup from '../ContentPopup';

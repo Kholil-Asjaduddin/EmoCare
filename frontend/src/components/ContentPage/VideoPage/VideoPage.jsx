@@ -1,29 +1,5 @@
-// import VideoItem from "./VideoItem";
-
-// const VideoPage = () => {
-//   const videos = [
-//         { id: 1, contentLink: "https://www.youtube.com/watch?v=oxx564hMBUI", title: "What Is Mental Health?"},
-//         { id: 2, contentLink: "https://www.youtube.com/watch?v=rkZl2gsLUp4", title: "How to manage your mental health"},
-//         { id: 3, contentLink: "https://www.youtube.com/watch?v=3QIfkeA6HBY", title: "8 Things You Can Do To Improve Your Mental Health"}
-//     ];
-
-//   return (
-//     <div className="pt-14 px-6">
-//       <h2 className="text-2xl text-[#10004B] font-semibold mt-[-20px] mb-5">Videos</h2>
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-//         {videos.map((video) => (
-//           <VideoItem key={video.id} {...video} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default VideoPage;
-
 import PropTypes from "prop-types";
 import ContentContainer from '../ContentContainer';
-import ContentColumn from '../ContentColumn';
 import VideoItem from "./VideoItem";
 import { useState } from 'react';
 import ContentPopup from '../ContentPopup';

@@ -5,11 +5,11 @@ const VideoItem = ({ contentLink, title }) => {
     const thumbnailLink = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : "";
 
     return (
-        <div className="mb-5">
+        <div className="mb-5 min-w-[200px]">
             <a href={contentLink} target="_blank">
-                <img className="h-44" src={thumbnailLink} alt="YouTube Thumbnail" />
+                <img className="h-35 w-60 object-cover rounded-md" src={thumbnailLink} alt="YouTube Thumbnail" />
             </a>
-            <p className="mt-2 text-xl">{title}</p>
+            <p className="mt-2 text-md text-[#13005A]">{title}</p>
         </div>
     );
 };
