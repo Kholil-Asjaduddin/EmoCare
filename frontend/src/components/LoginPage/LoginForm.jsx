@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/authService";
 import LoginButton from "./LoginButton";
 
@@ -8,18 +9,26 @@ const LoginForm = ({ onLoginSuccess }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const user = await loginUser(email, password);
-      onLoginSuccess(user);
+      if (!user.userSaved) {
+        navigate("/selectrole");
+      }
+      else {
+        onLoginSuccess(user);
+      }
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="scale-80 w-[500px] flex flex-col gap-6">
+    <form className="scale-80 w-[500px] flex flex-col gap-6">
       <h2 className="text-navy text-5xl py-15 mt-[-120px] font-bold text-center">Log In</h2>
 
       {/* Email Input */}

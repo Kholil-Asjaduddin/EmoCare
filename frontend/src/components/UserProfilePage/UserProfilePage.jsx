@@ -1,6 +1,6 @@
 import ProfileForm from "./ProfileForm";
 
-const UserProfilePage = () => {
+const UserProfilePage = () => { 
     return (
         <div className="w-screen h-screen flex items-center justify-center">
             {/* Left Side - Welcome Message */}

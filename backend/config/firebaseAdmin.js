@@ -3,7 +3,7 @@ var serviceAccount = require("../serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://emocare-3e290-default-rtdb.asia-southeast1.firebasedatabase.app"
+  databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
 const auth = admin.auth();
