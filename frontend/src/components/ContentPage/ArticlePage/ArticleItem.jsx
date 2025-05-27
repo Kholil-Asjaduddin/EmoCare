@@ -29,11 +29,11 @@ const ArticleItem = ({ contentLink }) => {
     }, [contentLink]);
 
     return (
-        <div className="border-b pb-2">
+        <div className="border-b border-[#13005A] pb-2">
             <a href={contentLink} className="font-bold text-navy hover:underline" target="_blank">
                 {metadata.title}
             </a>
-            <p>{metadata.publisherName}</p>
+            <p className="text-[#13005A] font-md">{metadata.publisherName} </p>
         </div>
     );
 };

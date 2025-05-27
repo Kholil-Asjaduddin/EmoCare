@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import ContentContainer from './ContentContainer';
 import ContentColumn from './ContentColumn';
-import VideoItem from './VideoItem';
-import PodcastItem from './PodcastItem';
-import ArticleItem from './ArticleItem';
+import VideoItem from './VideoPage/VideoItem';
+import PodcastItem from './PodcastPage/PodcastItem';
+import ArticleItem from './ArticlePage/ArticleItem';
 import { useState } from 'react';
 import ContentPopup from './ContentPopup';
 
@@ -63,7 +63,7 @@ const ContentPage = ({ userRole }) => {
                 {isPsychologist && (
                     <button
                     className="w-[50px] h-[50px] rounded-full bg-[#509FBF] text-[#00337C] text-[30px] font-semibold pb-2 
-                                shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center z-[999]"
+                                shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center"
                         onClick={handleAddClick}
                     >
                             +
