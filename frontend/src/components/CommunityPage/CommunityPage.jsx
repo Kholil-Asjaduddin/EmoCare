@@ -40,8 +40,9 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="w-screen flex flex-row flex-wrap justify-between pt-20 px-27">
+    <div className="w-full grid grid-cols-2 pt-15">
       {communities.map((community) => (
+        <div className="flex justify-center items-center">
         <CommunityCard
           key={community.id}
           name={community.name}
@@ -49,6 +50,7 @@ const CommunityPage = () => {
           isJoined={community.isJoined}
           onView={() => handleView(community.id)} 
         />
+        </div>
       ))}
     </div>
   );
