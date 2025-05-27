@@ -25,7 +25,7 @@ const sendMessage = async (req, res) => {
             return res.status(403).json({ status: 403, error: "User is not a member of this community" });
         }
 
-        const messageRef = db.ref(`communityChats/${communityId}/messages`).push();
+        const messageRef = db.ref(`community-chats/${communityId}/messages`).push();
         const messageId = messageRef.key;
 
         const newMessage = new CommunityChat(messageId, communityId, userId, text, Date.now());
