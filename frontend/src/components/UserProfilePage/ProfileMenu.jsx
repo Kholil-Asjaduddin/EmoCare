@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getCurrentUser } from "../../services/authService";
+import { getCurrentUser, logoutUser } from "../../services/authService";
 
 const ProfileMenu = () => {
     const [user, setUser] = useState(undefined);
@@ -44,8 +44,15 @@ const ProfileMenu = () => {
         }
     }
 
-    const handleLogout = () => {
-        navigate("/");
+    const handleLogout = async () => {
+        try {
+            await logoutUser();
+            setUser(null);
+            setOpen(open);
+            navigate("/");
+        } catch (error) {
+            console.error("Logout failed:", error.message);
+        }
     };
 
     return (
