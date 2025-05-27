@@ -4,7 +4,7 @@ import ViewButton from "./ViewButton";
 
 const CommunityCard = ({ name, members, isJoined, onView }) => {
   return (
-    <div className="w-xl h-80 flex flex-col justify-between items-center bg-nav rounded-[50px] mb-25 px-12 py-11 drop-shadow-lg">
+    <div className="w-140 h-80 scale-70 flex flex-col justify-between items-center bg-nav rounded-[50px] py-11 drop-shadow-lg">
       <div className="flex flex-col items-center">
         <h1 className="font-bold text-5xl pb-2">{name}</h1>
         <p className="font-normal text-4xl">
@@ -65,7 +65,7 @@ const CommunityCard = ({ name, members, isJoined, onView }) => {
                   </filter>
                 </defs>
               </svg>
-              <p className="font-normal text-2xl text-teal text-shadow-md">
+              <p className="font-normal text-2xl text-teal text-shadow-md mb-4">
                 You’re in this community
               </p>
             </div>
