@@ -25,9 +25,21 @@ const checkUserAvailability = async (userId) => {
   try {
     const clientSnapshot = await findUserInSubCollections("clients", userId);
     const psychogistSnapshot = await findUserInSubCollections("psychogist", userId);
-    const userSaved = clientSnapshot || psychogistSnapshot;
+
+    var userRole = null;
+    var userSaved = false;
+    if (clientSnapshot) {
+      userRole = "client";
+      userSaved = true;
+    }
+    else if (psychogistSnapshot) {
+      userRole = "psychogist";
+      userSaved = true;
+    } else {
+      userSaved = false;
+    }
     
-    return { uid: userId, userSaved: userSaved };
+    return { uid: userId, role: userRole, userSaved: userSaved };
   } catch (error) {
     console.error(error.message);
     throw new Error(error.message);
