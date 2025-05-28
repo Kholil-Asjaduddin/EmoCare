@@ -4,10 +4,11 @@ import ViewButton from "./ViewButton";
 
 const CommunityCard = ({ name, members, isJoined, onView }) => {
   return (
-    <div className="w-140 h-80 scale-70 flex flex-col justify-between items-center bg-nav rounded-[50px] py-11 drop-shadow-lg">
+    // <div className="scale-70 flex flex-col justify-between items-center bg-nav rounded-[50px] py-11 drop-shadow-lg">
+    <div className="w-140 scale-70 flex flex-col justify-between bg-nav rounded-[50px] py-5 justify-self-center">
       <div className="flex flex-col items-center">
-        <h1 className="font-bold text-5xl pb-2">{name}</h1>
-        <p className="font-normal text-4xl">
+        <h1 className="font-bold pb-2">{name}</h1>
+        <p className="font-normal text-3xl">
           {members} {members > 1 ? "members" : "member"}
         </p>
       </div>
@@ -69,8 +70,8 @@ const CommunityCard = ({ name, members, isJoined, onView }) => {
                 You’re in this community
               </p>
             </div>
-            <div className="flex justify-center">
-              <ViewButton onClick={onView} />
+            <div className="flex justify-center scale-85">
+              <ViewButton className="" onClick={onView} />
             </div>
           </div>
         )}

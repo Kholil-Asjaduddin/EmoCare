@@ -31,14 +31,24 @@ const ArticlePage = ({ userRole }) => {
 
     return (
         <div className="w-screen bg-light text-navy justify-items-center pt-14">
+          <div className="relative flex items-center justify-between px-10 mb-6">
+              <h2 className="text-3xl font-semibold text-navy text-center">
+                Article
+              </h2>
+
+              {isPsychologist && (
+                    <button
+                    className="absolute left-155 w-[50px] h-[50px] rounded-full bg-[#509FBF] text-[#00337C] text-[30px] font-semibold pb-2 
+                                shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center"
+                        onClick={handleAddClick}
+                    >
+                            +
+                    </button>
+              )}
+          </div>
             <div className="flex gap-10">
                 <ContentContainer>
                     <div className="w-full">
-                        <div className="w-full mt-[-20px] mb-10">
-                            <h2 className="text-3xl font-semibold text-navy text-center">
-                                Article
-                            </h2>
-                        </div>
                       <div className="flex flex-col gap-7 mt-8 h-[270px] pr-3 overflow-y-auto overflow-x-hidden scrollbar-hidden-hover">
                         {articles.map((article) => (
                             <ArticleItem key={article.id} {...article} />
@@ -46,15 +56,6 @@ const ArticlePage = ({ userRole }) => {
                       </div>
                     </div>
                 </ContentContainer>
-                {isPsychologist && (
-                    <button
-                    className="w-[50px] h-[50px] rounded-full bg-[#509FBF] text-[#00337C] text-[30px] font-semibold pb-2 
-                                shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center"
-                        onClick={handleAddClick}
-                    >
-                            +
-                    </button>
-                )}
                 {showPopup && <ContentPopup onClose={handleClosePopup} type="Article" />}
             </div>
         </div>
