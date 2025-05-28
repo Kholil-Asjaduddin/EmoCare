@@ -29,14 +29,24 @@ const VideoPage = ({ userRole }) => {
 
     return (
         <div className="w-screen bg-light text-navy justify-items-center pt-14">
+            <div className="relative flex items-center justify-between px-10 mb-6">
+                <h2 className="text-3xl font-semibold text-navy text-center">
+                    Video
+                </h2>
+
+                {isPsychologist && (
+                    <button
+                    className="absolute left-155 w-[50px] h-[50px] rounded-full bg-[#509FBF] text-[#00337C] text-[30px] font-semibold pb-2 
+                     shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center items-center"
+                    onClick={handleAddClick}
+                    >
+                            +
+                    </button>
+                )} 
+            </div>
             <div className="flex gap-10">
                 <ContentContainer>
                     <div className="w-full">
-                        <div className="w-full mt-[-20px] mb-15">
-                            <h2 className="text-3xl font-semibold text-navy text-center">
-                                Video
-                            </h2>
-                        </div>
                       <div className="flex flex-row gap-7 mt-10 overflow-x-auto overflow-y-hidden scrollbar-hidden-hover">
                         {videos.map((video) => (
                             <VideoItem key={video.id} {...video} />
@@ -44,15 +54,6 @@ const VideoPage = ({ userRole }) => {
                       </div>
                     </div>
                 </ContentContainer>
-                {isPsychologist && (
-                    <button
-                    className="w-[50px] h-[50px] rounded-full bg-[#509FBF] text-[#00337C] text-[30px] font-semibold pb-2 
-                                shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 flex justify-center"
-                        onClick={handleAddClick}
-                    >
-                            +
-                    </button>
-                )}
                 {showPopup && <ContentPopup onClose={handleClosePopup} type="Video"/>}
             </div>
         </div>
