@@ -7,7 +7,7 @@ const CommunityCard = ({ name, members, isJoined, onView }) => {
     // <div className="scale-70 flex flex-col justify-between items-center bg-nav rounded-[50px] py-11 drop-shadow-lg">
     <div className="w-140 scale-70 flex flex-col justify-between bg-nav rounded-[50px] py-5 justify-self-center">
       <div className="flex flex-col items-center">
-        <h1 className="font-bold text-4xl pb-2">{name}</h1>
+        <h1 className="font-bold pb-2">{name}</h1>
         <p className="font-normal text-3xl">
           {members} {members > 1 ? "members" : "member"}
         </p>

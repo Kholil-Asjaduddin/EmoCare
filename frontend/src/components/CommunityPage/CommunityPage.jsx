@@ -41,7 +41,7 @@ const CommunityPage = () => {
 
   return (
     <div className="w-screen grid grid-cols-2 pt-15">
-      {/* {communities.map((community) => (
+      {communities.map((community) => (
         <CommunityCard
           key={community.id} 
           name={community.name}
@@ -49,8 +49,8 @@ const CommunityPage = () => {
           isJoined={community.isJoined}
           onView={() => handleView(community.id)} 
         />
-      ))} */}
-      <CommunityCard
+      ))}
+      {/* <CommunityCard
           name={"name"}
           members={"1 member"}
           isJoined={true}
@@ -65,7 +65,7 @@ const CommunityPage = () => {
           members={"1 member"}
           isJoined={true}
           onView={() => console.log("view")} 
-        />
+        /> */}
       {/* {communities.map((community) => (
         <div key={community.id} className="flex justify-center items-center">
         <CommunityCard
