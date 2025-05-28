@@ -68,8 +68,8 @@ const PsychologistCard = ({
 
 PsychologistCard.propTypes = {
   photoBase64: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  specialist: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  specialization: PropTypes.string.isRequired,
   experience: PropTypes.number.isRequired,
   isBooked: PropTypes.bool.isRequired,
   consultationDate: PropTypes.string.isRequired,
