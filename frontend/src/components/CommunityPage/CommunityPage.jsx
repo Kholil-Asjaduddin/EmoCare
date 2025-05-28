@@ -10,7 +10,7 @@ const CommunityPage = () => {
       const data = [
         { id: 1, name: "Community 1", members: 50, isJoined: false },
         { id: 2, name: "Community 2", members: 2, isJoined: true },
-        { id: 3, name: "Community 3", members: 75, isJoined: true },
+        { id: 3, name: "Community 3", members: 75, isJoined: true }
       ];
       setCommunities(data);
     };
@@ -40,15 +40,16 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="w-screen flex flex-row flex-wrap justify-between pt-20 px-27">
+    <div className="w-full grid grid-cols-2 pt-15">
       {communities.map((community) => (
+        <div key={community.id} className="flex justify-center items-center">
         <CommunityCard
-          key={community.id}
           name={community.name}
           members={community.members}
           isJoined={community.isJoined}
           onView={() => handleView(community.id)} 
         />
+        </div>
       ))}
     </div>
   );

@@ -9,9 +9,9 @@ const ContentsNav = () => {
     const navigate = useNavigate(); // Hook for navigation
 
     const features = [
-        { title: "Article", image: articleImg, path: "/content" },
-        { title: "Video", image: videoImg, path: "/content" },
-        { title: "Podcast", image: podcastImg, path: "/content" },
+        { title: "Article", image: articleImg, path: "/article" },
+        { title: "Video", image: videoImg, path: "/video" },
+        { title: "Podcast", image: podcastImg, path: "/podcast" },
     ];
 
     return (
