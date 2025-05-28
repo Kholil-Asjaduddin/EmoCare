@@ -40,8 +40,33 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="w-full grid grid-cols-2 pt-15">
+    <div className="w-screen grid grid-cols-2 pt-15">
       {communities.map((community) => (
+        <CommunityCard
+          key={community.id} 
+          name={community.name}
+          members={community.members}
+          isJoined={community.isJoined}
+          onView={() => handleView(community.id)} 
+        />
+      ))}
+      {/* <CommunityCard
+          name={"name"}
+          members={"1 member"}
+          isJoined={true}
+          onView={() => console.log("view")} 
+        /><CommunityCard
+          name={"name"}
+          members={"1 member"}
+          isJoined={true}
+          onView={() => console.log("view")} 
+        /><CommunityCard
+          name={"name"}
+          members={"1 member"}
+          isJoined={true}
+          onView={() => console.log("view")} 
+        /> */}
+      {/* {communities.map((community) => (
         <div key={community.id} className="flex justify-center items-center">
         <CommunityCard
           name={community.name}
@@ -50,7 +75,7 @@ const CommunityPage = () => {
           onView={() => handleView(community.id)} 
         />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

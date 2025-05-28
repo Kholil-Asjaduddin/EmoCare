@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
 
   // Define paths where the navbar should be hidden
-  const excludedPaths = ['/landing', '/login', '/signup', '/selectrole', '/psychologistprofile', '/userprofile', '/profile'];
+  const excludedPaths = ['/landing', '/login', '/signup', '/selectrole', '/psychologistprofile', '/userprofile'];
 
   if (excludedPaths.includes(location.pathname)) {
     return null;
