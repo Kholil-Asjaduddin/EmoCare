@@ -10,7 +10,9 @@ const SignupPage = () => {
     if (user) {
       navigate("/selectrole");
     }
-  }, [user, navigate]);
+  }, [navigate]);
+
+  
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
