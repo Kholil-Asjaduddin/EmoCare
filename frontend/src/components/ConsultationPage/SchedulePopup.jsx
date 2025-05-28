@@ -1,10 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-
 import CloseIcon from "../../assets/close-icon.svg";
 import BriefcaseIcon from "../../assets/briefcase-icon.svg";
 import DextIcon from "../../assets/next-icon.svg";
-
 import DatePicker from "./DatePicker";
 
 // Helper function to get weekday dates
@@ -25,11 +23,17 @@ const getWeekdays = (weekOffset = 0) => {
   return weekdays;
 };
 
-const SchedulePopup = ({ isVisible, profilePhotoUrl, onClose }) => {
+const SchedulePopup = ({ isVisible, onClose, psychologist, clientId }) => {
   const [weekOffset, setWeekOffset] = useState(0);
+  
+  const photoBase64 = psychologist?.photoBase64 || "";
+  const photoSrc = photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : "";
+  const psychologistId = psychologist?.userId;
+  const psychologistName = psychologist?.username;
+  const specialization = psychologist?.specialization;
+  const experience = psychologist?.experience;
 
   if (!isVisible) return null;
-  profilePhotoUrl = profilePhotoUrl || "https://imgs.search.brave.com/4lctyMF-lPDLrEI1H-maKo97o7htpmU0aX7A2GBkdoE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYWNlLXlvdW5n/LWhhbmRzb21lLWJ1/c2luZXNzbWFuXzI1/MTEzNi0zMTI0OS5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw";
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm">
       <div className="w-100 h-4/5 flex flex-col bg-light">
@@ -45,14 +49,14 @@ const SchedulePopup = ({ isVisible, profilePhotoUrl, onClose }) => {
           </div>
           <div className="flex items-center gap-6 pb-6 px-6">
             <div className="bg-gray-300 rounded-2xl">
-              <img className="size-25 object-cover rounded-2xl" src={profilePhotoUrl} alt="Profile Photo" />
+              <img className="size-25 object-cover rounded-2xl" src={photoSrc} alt="Profile Photo" />
             </div>
             <div>
-              <p className="text-4xl font-normal text-black">Dr. Charlie</p>
-              <p className="text-lg text-black">Depression</p>
+              <p className="text-4xl font-normal text-black">{psychologistName}</p>
+              <p className="text-lg text-black">{specialization}</p>
               <div className="flex items-center text-black gap-2">
                 <img className="size-5" src={BriefcaseIcon} alt="Briefcase Icon" />
-                <span className="text-md">12 years</span>
+                <span className="text-md">{experience} {experience > 1 ? "years" : "year"}</span>
               </div>
             </div>
           </div>
@@ -63,7 +67,7 @@ const SchedulePopup = ({ isVisible, profilePhotoUrl, onClose }) => {
           <h2 className="text-2xl font-normal text-black py-2">Select Date & Time</h2>
           <div className="flex flex-col gap-4">
             {getWeekdays(weekOffset).map((date, index) => (
-              <DatePicker key={index} date={date} />
+              <DatePicker key={index} date={date} psychologistId={psychologistId} clientId={clientId} />
             ))}
           </div>
         </div>

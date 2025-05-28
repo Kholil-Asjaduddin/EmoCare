@@ -48,20 +48,6 @@ const PsychologistPage = () => {
               const currentDate = now.toISOString().split("T")[0];
               const currentTime = now.getHours() * 60 + now.getMinutes();console.log("Current time:", currentTime);
 
-              // const updatedPsychologists = psychologistsData.map((psychologist) => ({
-              //     ...psychologist,
-              //     isBooked: consultationsData.some(
-              //         (consult) => consult.clientId === user.uid && consult.psychologistId === psychologist.userId
-              //     ),
-              //     isSessionTime: consultationsData.some((consult) => {
-              //         if (consult.psychologistId !== psychologist.userId) return false;
-              //         if (consult.date !== currentDate) return false;
-
-              //         const consultationTime = parseInt(consult.time.split(":")[0]) * 60 + parseInt(consult.time.split(":")[1]);
-              //         return currentTime >= consultationTime && (currentTime <= consultationTime + 120);
-              //     })
-              // }));
-
               const updatedPsychologists = psychologistsData.map((psychologist) => {
                 const userConsultation = consultationsData.find(
                     (consult) => consult.clientId === user.uid && consult.psychologistId === psychologist.userId
@@ -89,39 +75,6 @@ const PsychologistPage = () => {
       fetchData();
   }, [user]);
 
-//   useEffect(() => {
-
-//             // 🔥 Dapatkan waktu saat ini dalam format yang sama dengan database (YYYY-MM-DD dan HH:mm)
-//             const now = new Date();
-//             const currentDate = now.toISOString().split("T")[0]; // 🔥 Format: "YYYY-MM-DD"
-//             const currentTime = now.getHours() * 60 + now.getMinutes(); // 🔥 Konversi jam ke total menit
-
-//             // 🔥 Tandai psikolog yang memiliki sesi aktif
-//             const updatedPsychologists = psychologistsData.map((psychologist) => {
-//                 const isBooked = consultationsData.some(
-//                     (consult) => consult.clientId === user.uid && consult.psychologistId === psychologist.id
-//                 );
-
-//                 const isSessionTime = consultationsData.some((consult) => {
-//                     if (consult.psychologistId !== psychologist.id) return false;
-//                     if (consult.date !== currentDate) return false;
-
-//                     const consultationTime = parseInt(consult.time.split(":")[0]) * 60 + parseInt(consult.time.split(":")[1]); // 🔥 Konversi ke total menit
-//                     return consultationTime >= currentTime && consultationTime <= currentTime + 120; // 🔥 Cek rentang waktu 2 jam
-//                 });
-
-//                 return { ...psychologist, isBooked, isSessionTime };
-//             });
-
-//             setPsychologists(updatedPsychologists);
-//         } catch (error) {
-//             console.error("Error fetching data:", error);
-//         }
-//     };
-
-//     fetchData();
-// }, [user]);
-
   const handleOpenPopup = (psychologist) => {
     setSelectedPsychologist(psychologist);
     setPopupVisible(true);
@@ -131,11 +84,6 @@ const PsychologistPage = () => {
     setPopupVisible(false);
     setSelectedPsychologist(null);
   };
-
-  // const psychologists = [
-  //   { id: 2, profilePhotoUrl: "https://i.pinimg.com/736x/d4/07/18/d407187d8444f080a258b4d1caef1076.jpg", name: "Dr. Alice", specialist: "Stress Management", experience: 8, isBooked: true, isSessionTime: true },
-  //   { id: 3, profilePhotoUrl: "https://imgs.search.brave.com/4lctyMF-lPDLrEI1H-maKo97o7htpmU0aX7A2GBkdoE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYWNlLXlvdW5n/LWhhbmRzb21lLWJ1/c2luZXNzbWFuXzI1/MTEzNi0zMTI0OS5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw", name: "Dr. Charlie", specialist: "Depression", experience: 12, isBooked: false, isSessionTime: false },
-  // ];
 
   return (
     <div className="w-screen h-full px-29">
@@ -153,7 +101,7 @@ const PsychologistPage = () => {
       </div>
 
       {/* Render popup if needed */}
-      <SchedulePopup isVisible={isPopupVisible} onClose={handleClosePopup} psychologist={selectPsychologist} />
+      <SchedulePopup isVisible={isPopupVisible} onClose={handleClosePopup} clientId={user?.uid} psychologist={selectPsychologist} />
     </div>
   );
 };
