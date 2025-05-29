@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { getDatabase, ref, get } from "firebase/database";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
-const DatePicker = ({ date, clientId, psychologistId }) => {
+const DatePicker = ({ date, clientId, psychologistId, onSuccess }) => {
   const [bookedTimes, setBookedTimes] = useState([]);
-  const navigate = useNavigate();
   const database = getDatabase();
   const timeSlots = ["12:00", "14:00", "16:00"];
   
@@ -28,10 +26,12 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
       fetchBookedTimes();
   }, [database, date, psychologistId]);
 
-  const isPastDate = (date) => {
+  const isPastSlot = (date, time) => {
       const now = new Date();
-      const today = now.toISOString().split("T")[0];
-      return date < today;
+      const [slotHour, slotMinute] = time.split(":").map(Number);
+      const slotDateTime = new Date(`${date}T${time}:00`);
+      
+      return slotDateTime < now;
   };
 
   const handleBook = async (time) => {
@@ -54,7 +54,7 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 
             if (response.status == 201)
             {
-                navigate("/consultation");
+                onSuccess();
             }
         } catch (error) {
             console.error("Error saving profile:", error);
@@ -66,13 +66,16 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
       <p className="text-xl text-blue-dark">{date}</p>
       <div className="flex justify-start text-navy gap-4">
         {timeSlots.map((time) => (
-          <button key={time} onClick={() => handleBook(time)}>
+          <button
+            key={time}
+            onClick={() => handleBook(time)}
+            disabled={isPastSlot(date, time) || bookedTimes.includes(time)}
+          >
             <div className={`rounded-lg px-2 text-center drop-shadow-md ${
-              isPastDate(date) || bookedTimes.includes(time) ? "bg-gray-300 opacity-50 cursor-not-allowed"
-              : "bg-teal hover:bg-blue-600"
-            }`}
-            disabled={isPastDate(date) || bookedTimes.includes(time)}
-            >
+              isPastSlot(date, time) || bookedTimes.includes(time)
+                ? "bg-gray-300 opacity-50 cursor-not-allowed"
+                : "bg-teal hover:bg-blue-600"
+            }`}>
               <p>{time}</p>
             </div>
           </button>
@@ -85,7 +88,8 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 DatePicker.propTypes = {
   date: PropTypes.string.isRequired,
   clientId: PropTypes.string.isRequired,
-  psychologistId: PropTypes.string.isRequired
+  psychologistId: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default DatePicker;

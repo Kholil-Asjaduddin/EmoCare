@@ -14,7 +14,8 @@ const PsychologistCard = ({
   consultationDate,
   isSessionTime,
   onOpenSchedule,
-  onOpenConsultationPage
+  onOpenConsultationPage,
+  sessionId
 }) => {
   const photoSrc = photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : "";
 
@@ -58,6 +59,7 @@ const PsychologistCard = ({
               onClick={onOpenConsultationPage}
               disabled={isSessionTime ? false : true}
               bgColor={isSessionTime ? "#03C988" : "#CBD3D6"}
+              sessionId={sessionId}
             />
           </div>
         )}
@@ -75,7 +77,8 @@ PsychologistCard.propTypes = {
   consultationDate: PropTypes.string.isRequired,
   isSessionTime: PropTypes.bool.isRequired,
   onOpenSchedule: PropTypes.func.isRequired,
-  onOpenConsultationPage: PropTypes.func.isRequired
+  onOpenConsultationPage: PropTypes.func.isRequired,
+  sessionId: PropTypes.string,
 };
 
 export default PsychologistCard;

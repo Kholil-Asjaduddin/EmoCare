@@ -2,79 +2,53 @@ import MessageBubble from "./MessageBubble";
 import { IoSend } from "react-icons/io5";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { joinSession, sendMessage, listenForMessages, leaveSession } from "../../services/socketService";
+import { socket, joinSession, sendMessage, listenForMessages, leaveSession } from "../../services/socketService";
 
 const ChatSection = ({ sessionId, userId }) => {
-    const [messages, setMessages] = useState([]); // Awalnya kosong
+    const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState("");
-    // const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
         joinSession(sessionId);
- 
-        listenForMessages((newMessage) => {
+
+        const handleNewMessage = (newMessage) => {
             setMessages((prev) => [...prev, newMessage]);
-        });
- 
-        return () => leaveSession(sessionId);
+            console.log("Pesan diterima di client:", newMessage);
+        };
+        listenForMessages(handleNewMessage);
+
+        return () => {
+            leaveSession(sessionId);
+            socket.off("receiveMessage", handleNewMessage);
+        };
     }, [sessionId]);
  
     const handleSendMessage = () => {
-        if (!messageInput.trim()) return;
-        
+    if (!messageInput.trim()) return;
+
         if (messageInput.trim()) {
             sendMessage(sessionId, userId, messageInput);
+            console.log("Pesan terkirim:", {
+                sessionId,
+                userId,
+                message: messageInput
+            });
             setMessageInput("");
         }
     };
-    // Daftar respons chatbot secara bergantian
-    // const consultationResponses = [
-    //     "It sounds like a tough situation. Have you tried talking to someone about it?",
-    //     "I appreciate you sharing this with me. What do you think would help you feel more at ease?",
-    //     "Sometimes writing down your feelings can help make sense of things. Would you like to try?",
-    //     "Deep breaths can work wonders. Would you like a short breathing exercise?",
-    //     "You're doing your best, and that's enough. What's one small thing you can do for yourself today?"
-    // ];
 
-    // Fungsi untuk menangani pengiriman pesan
-    // const handleSendMessage = () => {
-    //     if (!messageInput.trim()) return; // Cegah input kosong
-
-    //     const userMessage = {
-    //         text: messageInput,
-    //         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    //         isSender: true
-    //     };
-
-    //     setMessages((prevMessages) => [...prevMessages, userMessage]); // Tambahkan pesan pengguna
-    //     setMessageInput(""); // Kosongkan input
-
-    //     // Tambahkan respons chatbot setelah 1 detik
-    //     // setTimeout(() => {
-    //     //     const botMessage = {
-    //     //         text: consultationResponses[Math.floor(Math.random() * consultationResponses.length)],
-    //     //         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    //     //         isSender: false
-    //     //     };
-    //     //     setMessages((prevMessages) => [...prevMessages, botMessage]); // Tambahkan respons chatbot
-    //     // }, 1000);
-    // };
 
     return (
         <div className="flex-1 flex flex-col items-center py-10 px-6 bg-[#C6DFEA] overflow-y-auto overflow-x-hidden scrollbar-hidden-hover">
-            {/* Date */}
-            <div className="bg-gray-300 text-blue-dark text-[15px] text-lg px-3 py-1 mt-5 rounded-lg shadow-md">
-                {new Date().toLocaleDateString()}
-            </div>
 
             {/* Messages */}
-            <div>
+            <div className="w-full max-w-4xl h-full flex flex-col gap-4 overflow-y-auto scrollbar-hidden-hover pt-10">
                 {messages.map((msg, index) => (
-                    <MessageBubble 
-                        key={index} 
-                        text={msg.message} // 🔥 Sesuaikan dengan `msg.text`
-                        time={new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} // 🔥 Format waktu
-                        isSender={msg.userId === userId} // 🔥 Cek apakah pengirim adalah user yang sedang login
+                    <MessageBubble
+                        key={index}
+                        text={msg.message}
+                        time={new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                        isSender={msg.userId === userId}
                     />
                 ))}
             </div>
@@ -89,7 +63,6 @@ const ChatSection = ({ sessionId, userId }) => {
                         className="flex-1 outline-none text-lg"
                         value={messageInput}
                         onChange={(e) => setMessageInput(e.target.value)}
-                        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} // Kirim dengan Enter
                     />
                     <button className="ml-2 text-gray-500 hover:text-gray-700" onClick={handleSendMessage}>
                         <IoSend size={24} />
@@ -102,7 +75,7 @@ const ChatSection = ({ sessionId, userId }) => {
 
 ChatSection.propTypes = {
   sessionId: PropTypes.string.isRequired,
-  userId: PropTypes.bool.isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 export default ChatSection;
