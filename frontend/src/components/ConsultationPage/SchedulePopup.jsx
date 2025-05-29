@@ -93,6 +93,14 @@ const SchedulePopup = ({ isVisible, onClose, psychologist, clientId }) => {
 };
 
 SchedulePopup.propTypes = {
+  clientId: PropTypes.string.isRequired,
+  psychologist: PropTypes.shape({
+    photoBase64: PropTypes.string.isRequired,
+    userId: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    specialization: PropTypes.string.isRequired,
+    experience: PropTypes.number.isRequired,
+  }).isRequired,
   isVisible: PropTypes.bool.isRequired,
   profilePhotoUrl: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,

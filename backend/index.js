@@ -1,10 +1,15 @@
 const express = require('express');
 const cors = require("cors");
 const dotenv = require("dotenv");
+const http = require("http");
+const { initializeSocket } = require("./socket/socketHandler");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const server = http.createServer(app);
+const io = initializeSocket(server);
 
 dotenv.config();
 
@@ -27,6 +32,6 @@ app.use("/chatbot", chatbotRoutes);
 
 // Run the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });

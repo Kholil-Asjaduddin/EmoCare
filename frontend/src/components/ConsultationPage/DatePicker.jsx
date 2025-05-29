@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const DatePicker = ({ date, clientId, psychologistId }) => {
   const [bookedTimes, setBookedTimes] = useState([]);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const database = getDatabase();
   const timeSlots = ["12:00", "14:00", "16:00"];
@@ -27,7 +26,7 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
       };
 
       fetchBookedTimes();
-  }, [date, psychologistId]);
+  }, [database, date, psychologistId]);
 
   const isPastDate = (date) => {
       const now = new Date();
@@ -37,7 +36,7 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 
   const handleBook = async (time) => {
         if (!clientId) {
-            setError("User not authenticated");
+            console.error("User not authenticated");
             return;
         }
 
@@ -58,7 +57,6 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
                 navigate("/consultation");
             }
         } catch (error) {
-            setError(error.message);
             console.error("Error saving profile:", error);
         }
     }
@@ -86,6 +84,7 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 
 DatePicker.propTypes = {
   date: PropTypes.string.isRequired,
+  clientId: PropTypes.string.isRequired,
   psychologistId: PropTypes.string.isRequired
 };
 
