@@ -58,7 +58,7 @@ const ProfileForm = () => {
 
             if (response.status == 201)
             {
-                navigate("/");
+                navigate("/home");
             }
         } catch (error) {
             setError(error.message);
