@@ -5,9 +5,9 @@ const ConsultationCard = ({ date, time, name }) => {
     const navigate = useNavigate();
     return (
         <button onClick={() => navigate("/consultation")} className={`p-4 mt-3 ml-5 min-w-[250px] scale-110 bg-[#EAF0F1] border border-[#9DC8DC] shadow-md rounded-3xl shadow`}>
-            <p className="ml-2 text-blue-dark font-semibold">{date}</p>
-            <p className="ml-2 text-teal">{time}</p>
-            <p className="ml-2 text-navy font-bold">{name}</p>
+            <p className="text-blue-dark font-semibold">{date}</p>
+            <p className="text-teal">{time}</p>
+            <p className="text-navy font-bold">{name}</p>
         </button>
     );
 };
