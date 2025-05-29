@@ -67,7 +67,7 @@ const SchedulePopup = ({ isVisible, onClose, psychologist, clientId }) => {
           <h2 className="text-2xl font-normal text-black py-2">Select Date & Time</h2>
           <div className="flex flex-col gap-4">
             {getWeekdays(weekOffset).map((date, index) => (
-              <DatePicker key={index} date={date} psychologistId={psychologistId} clientId={clientId} />
+              <DatePicker onSuccess={onClose} key={index} date={date} psychologistId={psychologistId} clientId={clientId} />
             ))}
           </div>
         </div>

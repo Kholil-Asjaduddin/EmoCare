@@ -8,25 +8,14 @@ const initializeSocket = (server) => {
         }
     });
 
-    // io.on("connection", (socket) => {
-    //     console.log(`User connected: ${socket.id}`);
-
-    //     io.emit("serverTest", "Socket.IO is working!");
-        
-    //     socket.on("disconnect", () => {
-    //         console.log(`User disconnected: ${socket.id}`);
-    //     });
-    // });
-
     io.on("connection", (socket) => {
-        console.log(`User connected: ${socket.id}`);
-
         socket.on("joinSession", (sessionId) => {
             socket.join(sessionId);
             console.log(`User joined session: ${sessionId}`);
         });
 
         socket.on("sendMessage", ({ sessionId, userId, message }) => {
+            console.log("Pesan diterima di server:", { sessionId, userId, message });
             io.to(sessionId).emit("receiveMessage", { userId, message, timestamp: Date.now() });
         });
 

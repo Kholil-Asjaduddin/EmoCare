@@ -46,25 +46,25 @@ const PsychologistPage = () => {
 
               const now = new Date();
               const currentDate = now.toISOString().split("T")[0];
-              const currentTime = now.getHours() * 60 + now.getMinutes();console.log("Current time:", currentTime);
+              const currentTime = now.getHours() * 60 + now.getMinutes();
 
               const updatedPsychologists = psychologistsData.map((psychologist) => {
-                const userConsultation = consultationsData.find(
-                    (consult) => consult.clientId === user.uid && consult.psychologistId === psychologist.userId
-                );
+                  const userConsultation = consultationsData.find(
+                      (consult) => consult.clientId === user.uid && consult.psychologistId === psychologist.userId
+                  );
+                  const consultationDate = userConsultation ? userConsultation.date : null;
+                  const isBooked = Boolean(userConsultation);
+                  const sessionId = userConsultation ? userConsultation.consultationId : null;
 
-                const consultationDate = userConsultation ? userConsultation.date : null;
-                const isBooked = Boolean(userConsultation);
+                  const isSessionTime = userConsultation && userConsultation.date === currentDate
+                      ? (() => {
+                          const consultationTime = parseInt(userConsultation.time.split(":")[0]) * 60 + parseInt(userConsultation.time.split(":")[1]);
+                          return currentTime >= consultationTime && currentTime <= consultationTime + 120;
+                      })()
+                      : false;
 
-                const isSessionTime = userConsultation && userConsultation.date === currentDate
-                    ? (() => {
-                        const consultationTime = parseInt(userConsultation.time.split(":")[0]) * 60 + parseInt(userConsultation.time.split(":")[1]);
-                        return currentTime >= consultationTime && currentTime <= consultationTime + 120;
-                    })()
-                    : false;
-
-                return { ...psychologist, isBooked, isSessionTime, consultationDate };
-            });
+                  return { ...psychologist, isBooked, isSessionTime, consultationDate, sessionId };
+              });
 
               setPsychologists(updatedPsychologists);console.log("Updated psychologists:", updatedPsychologists);
           } catch (error) {
@@ -86,7 +86,7 @@ const PsychologistPage = () => {
   };
 
   return (
-    <div className="w-screen h-full px-29">
+    <div className="w-screen h-full pt-20 px-29">
       <h1 className="w-full text-center text-navy text-5xl font-bold mb-10">
         Psychologist
       </h1>
@@ -95,6 +95,7 @@ const PsychologistPage = () => {
         <PsychologistCard
             key={psychologist.id || index}
             {...psychologist}
+            sessionId={psychologist.sessionId}
             onOpenSchedule={() => handleOpenPopup(psychologist)}
           />
         ))}

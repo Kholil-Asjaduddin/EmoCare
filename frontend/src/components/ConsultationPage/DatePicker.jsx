@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { getDatabase, ref, get } from "firebase/database";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
-const DatePicker = ({ date, clientId, psychologistId }) => {
+const DatePicker = ({ date, clientId, psychologistId, onSuccess }) => {
   const [bookedTimes, setBookedTimes] = useState([]);
-  const navigate = useNavigate();
   const database = getDatabase();
   const timeSlots = ["12:00", "14:00", "16:00"];
   
@@ -54,7 +52,7 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 
             if (response.status == 201)
             {
-                navigate("/consultation");
+                onSuccess();
             }
         } catch (error) {
             console.error("Error saving profile:", error);
@@ -85,7 +83,8 @@ const DatePicker = ({ date, clientId, psychologistId }) => {
 DatePicker.propTypes = {
   date: PropTypes.string.isRequired,
   clientId: PropTypes.string.isRequired,
-  psychologistId: PropTypes.string.isRequired
+  psychologistId: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default DatePicker;

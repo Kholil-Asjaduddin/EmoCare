@@ -24,7 +24,7 @@ const findUserInSubCollections = async (subCollectionName, userId) => {
 const checkUserAvailability = async (userId) => {
   try {
     const clientSnapshot = await findUserInSubCollections("clients", userId);
-    const psychogistSnapshot = await findUserInSubCollections("psychogist", userId);
+    const psychologistSnapshot = await findUserInSubCollections("psychologists", userId);
 
     var username = null;
     var photoBase64 = null;
@@ -36,10 +36,10 @@ const checkUserAvailability = async (userId) => {
       userRole = "client";
       userSaved = true;
     }
-    else if (psychogistSnapshot) {
-      username = psychogistSnapshot.username;
-      photoBase64 = psychogistSnapshot.photoBase64;
-      userRole = "psychogist";
+    else if (psychologistSnapshot) {
+      username = psychologistSnapshot.username;
+      photoBase64 = psychologistSnapshot.photoBase64;
+      userRole = "psychologist";
       userSaved = true;
     } else {
       userSaved = false;

@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const OpenConsultationPageButton = ({ disabled, bgColor }) => {
+const OpenConsultationPageButton = ({ disabled, bgColor, sessionId }) => {
+  console.log("OpenConsultationPageButton rendered", { disabled, sessionId });
   const navigate = useNavigate();
-  
-  // ambil session id dari db
 
   return (
     <button
       onClick={() => {
-        const sessionId = "1234"; // TODO: Replace this with dynamic ID from DB if needed
-        navigate(`/consultationchat/${sessionId}`);
+        console.log("Button clicked, sessionId:", sessionId);
+        if (sessionId) {
+          navigate(`/consultationchat/${sessionId}`);
+        }
       }}
-      disabled={disabled}
+      disabled={disabled || !sessionId}
       style={{
         backgroundColor: bgColor,
       }}
@@ -25,9 +26,9 @@ const OpenConsultationPageButton = ({ disabled, bgColor }) => {
 };
 
 OpenConsultationPageButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
   bgColor: PropTypes.string.isRequired,
+  sessionId: PropTypes.string,
 };
 
 OpenConsultationPageButton.defaultProps = {
