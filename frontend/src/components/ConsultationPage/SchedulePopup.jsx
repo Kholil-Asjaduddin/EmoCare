@@ -23,7 +23,7 @@ const getWeekdays = (weekOffset = 0) => {
   return weekdays;
 };
 
-const SchedulePopup = ({ isVisible, onClose, psychologist, clientId }) => {
+const SchedulePopup = ({ isVisible, onClose, psychologist, clientId, onBookSuccess }) => {
   const [weekOffset, setWeekOffset] = useState(0);
   
   const photoBase64 = psychologist?.photoBase64 || "";
@@ -67,7 +67,16 @@ const SchedulePopup = ({ isVisible, onClose, psychologist, clientId }) => {
           <h2 className="text-2xl font-normal text-black py-2">Select Date & Time</h2>
           <div className="flex flex-col gap-4">
             {getWeekdays(weekOffset).map((date, index) => (
-              <DatePicker onSuccess={onClose} key={index} date={date} psychologistId={psychologistId} clientId={clientId} />
+              <DatePicker
+                onSuccess={() => {
+                  onBookSuccess(); // Trigger refresh
+                  onClose();       // Tutup popup
+                }}
+                key={index}
+                date={date}
+                psychologistId={psychologistId}
+                clientId={clientId}
+              />
             ))}
           </div>
         </div>
@@ -101,6 +110,7 @@ SchedulePopup.propTypes = {
     specialization: PropTypes.string.isRequired,
     experience: PropTypes.number.isRequired,
   }).isRequired,
+  onBookSuccess: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
   profilePhotoUrl: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,

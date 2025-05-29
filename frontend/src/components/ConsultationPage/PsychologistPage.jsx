@@ -13,6 +13,7 @@ const PsychologistPage = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [selectPsychologist, setSelectedPsychologist] = useState(null);
   const [psychologists, setPsychologists] = useState([]);
+  const [refreshKey, setRefreshKey] = useState(0);
   const auth = getAuth();
 
   useEffect(() => {
@@ -27,8 +28,6 @@ const PsychologistPage = () => {
 
     return () => unsubscribe();
   }, [auth]);
-
-  useEffect(() => {console.log(user)}, [user]);
   
   useEffect(() => {
       const fetchData = async () => {
@@ -73,7 +72,7 @@ const PsychologistPage = () => {
       };
 
       fetchData();
-  }, [user]);
+  }, [user, refreshKey]);
 
   const handleOpenPopup = (psychologist) => {
     setSelectedPsychologist(psychologist);
@@ -102,7 +101,13 @@ const PsychologistPage = () => {
       </div>
 
       {/* Render popup if needed */}
-      <SchedulePopup isVisible={isPopupVisible} onClose={handleClosePopup} clientId={user?.uid} psychologist={selectPsychologist} />
+      <SchedulePopup
+        isVisible={isPopupVisible}
+        onClose={handleClosePopup}
+        psychologist={selectPsychologist}
+        clientId={user?.uid}
+        onBookSuccess={() => setRefreshKey(prev => prev + 1)} // Pass ke SchedulePopup
+      />
     </div>
   );
 };

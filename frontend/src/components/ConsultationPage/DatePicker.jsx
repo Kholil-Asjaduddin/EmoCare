@@ -26,10 +26,12 @@ const DatePicker = ({ date, clientId, psychologistId, onSuccess }) => {
       fetchBookedTimes();
   }, [database, date, psychologistId]);
 
-  const isPastDate = (date) => {
+  const isPastSlot = (date, time) => {
       const now = new Date();
-      const today = now.toISOString().split("T")[0];
-      return date < today;
+      const [slotHour, slotMinute] = time.split(":").map(Number);
+      const slotDateTime = new Date(`${date}T${time}:00`);
+      
+      return slotDateTime < now;
   };
 
   const handleBook = async (time) => {
@@ -64,13 +66,16 @@ const DatePicker = ({ date, clientId, psychologistId, onSuccess }) => {
       <p className="text-xl text-blue-dark">{date}</p>
       <div className="flex justify-start text-navy gap-4">
         {timeSlots.map((time) => (
-          <button key={time} onClick={() => handleBook(time)}>
+          <button
+            key={time}
+            onClick={() => handleBook(time)}
+            disabled={isPastSlot(date, time) || bookedTimes.includes(time)}
+          >
             <div className={`rounded-lg px-2 text-center drop-shadow-md ${
-              isPastDate(date) || bookedTimes.includes(time) ? "bg-gray-300 opacity-50 cursor-not-allowed"
-              : "bg-teal hover:bg-blue-600"
-            }`}
-            disabled={isPastDate(date) || bookedTimes.includes(time)}
-            >
+              isPastSlot(date, time) || bookedTimes.includes(time)
+                ? "bg-gray-300 opacity-50 cursor-not-allowed"
+                : "bg-teal hover:bg-blue-600"
+            }`}>
               <p>{time}</p>
             </div>
           </button>
