@@ -1,38 +1,62 @@
 import { useState, useEffect } from "react";
 import CommunityCard from "./CommunityCard";
+import firebaseApp from "../../firebaseConfig";
+import { getDatabase, ref, get } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getCurrentUser } from "../../services/authService";
+
+const database = getDatabase(firebaseApp);
 
 const CommunityPage = () => {
+  const [user, setUser] = useState(undefined);
   const [communities, setCommunities] = useState([]);
+  const auth = getAuth();
 
   useEffect(() => {
-    // Simulasi API call
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        const currentUser = await getCurrentUser(); 
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  useEffect(() => {
     const fetchCommunities = async () => {
-      const data = [
-        { id: 1, name: "Community 1", members: 50, isJoined: false },
-        { id: 2, name: "Community 2", members: 2, isJoined: true },
-        { id: 3, name: "Community 3", members: 75, isJoined: true }
-      ];
-      setCommunities(data);
-    };
+  if (!user?.uid) {
+    console.warn("User not logged in, skipping community fetch.");
+    return;
+  }
 
+  try {
+    const communitySnapshot = await get(ref(database, "communities"));
+    const communitiesData = communitySnapshot.exists()
+      ? Object.values(communitySnapshot.val())
+      : [];
+
+    const enrichedCommunities = communitiesData.map((community) => {
+      const isJoined =
+        Array.isArray(community.members) && community.members.includes(user.uid);
+      return {
+        ...community,
+        isJoined,
+      };
+    });
+
+    console.log("Enriched communities:", enrichedCommunities);
+    setCommunities(enrichedCommunities);
+  } catch (error) {
+    console.error("Error fetching communities:", error);
+  }
+};
+
+  
     fetchCommunities();
-  }, []);
-
-  // const handleJoin = (id) => {
-  //   setCommunities((prev) =>
-  //     prev.map((community) =>
-  //       community.id === id ? { ...community, isJoined: true } : community,
-  //     ),
-  //   );
-  // };
-
-  // const handleLeave = (id) => {
-  //   setCommunities((prev) =>
-  //     prev.map((community) =>
-  //       community.id === id ? { ...community, isJoined: false } : community,
-  //     ),
-  //   );
-  // };
+  }, [user]);
 
   const handleView = (id) => {
     // Navigate to the community chat page
@@ -44,38 +68,13 @@ const CommunityPage = () => {
       {communities.map((community) => (
         <CommunityCard
           key={community.id} 
+          communityId={community.id}
           name={community.name}
-          members={community.members}
+          memberCount={community.memberCount}
           isJoined={community.isJoined}
-          onView={() => handleView(community.id)} 
+          onView={() => handleView(community.id)}
         />
       ))}
-      {/* <CommunityCard
-          name={"name"}
-          members={"1 member"}
-          isJoined={true}
-          onView={() => console.log("view")} 
-        /><CommunityCard
-          name={"name"}
-          members={"1 member"}
-          isJoined={true}
-          onView={() => console.log("view")} 
-        /><CommunityCard
-          name={"name"}
-          members={"1 member"}
-          isJoined={true}
-          onView={() => console.log("view")} 
-        /> */}
-      {/* {communities.map((community) => (
-        <div key={community.id} className="flex justify-center items-center">
-        <CommunityCard
-          name={community.name}
-          members={community.members}
-          isJoined={community.isJoined}
-          onView={() => handleView(community.id)} 
-        />
-        </div>
-      ))} */}
     </div>
   );
 };
