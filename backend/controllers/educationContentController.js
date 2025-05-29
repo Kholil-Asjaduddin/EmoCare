@@ -1,21 +1,17 @@
-const { v4: uuidv4 } = require('uuid');
-const db = require('../firebase');
+const { db } = require("../config/firebaseAdmin");
+const EducationVideo = require("../models/educationVideo");
 
 // 🔽 Upload Video
-const uploadVideo = async (req, res) => {
+const uploadVideo = async (req, res) => { // nama
   try {
-    const { contentLink, title } = req.body;
-    const contentId = uuidv4();
+    const { contentId, contentLink, title } = req.body; // request body
 
-    await db.collection("education-content").doc("videos").collection("items").doc(contentId).set({
-      contentId,
-      contentLink,
-      title
-    });
+    const newEducationVideo = new EducationVideo(contentId, contentLink, title); // model, contructor
+    await db.ref(`education-content/videos/${contentId}`).set(newEducationVideo); // url, set()
 
-    res.status(201).json({ message: "Video uploaded successfully", contentId });
+    res.status(201).json({ status: 201, contentLink, title, message: "Upload video successfully" }); // msg
   } catch (error) {
-    res.status(500).json({ message: "Error uploading video", error });
+    res.status(500).json({ status: 500, error: error.message });
   }
 };
 
