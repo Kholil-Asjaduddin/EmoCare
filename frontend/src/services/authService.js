@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getDatabase, ref, child, get } from "firebase/database";
 import firebaseApp from "../firebaseConfig";
 
@@ -25,9 +25,21 @@ const checkUserAvailability = async (userId) => {
   try {
     const clientSnapshot = await findUserInSubCollections("clients", userId);
     const psychogistSnapshot = await findUserInSubCollections("psychogist", userId);
-    const userSaved = clientSnapshot || psychogistSnapshot;
+
+    var userRole = null;
+    var userSaved = false;
+    if (clientSnapshot) {
+      userRole = "client";
+      userSaved = true;
+    }
+    else if (psychogistSnapshot) {
+      userRole = "psychogist";
+      userSaved = true;
+    } else {
+      userSaved = false;
+    }
     
-    return { uid: userId, userSaved: userSaved };
+    return { uid: userId, role: userRole, userSaved: userSaved };
   } catch (error) {
     console.error(error.message);
     throw new Error(error.message);
@@ -45,6 +57,16 @@ export const loginUser = async (email, password) => {
     console.error(error.message);
     throw new Error(error.message);
   }
+};
+
+export const logoutUser = async () => {
+    try {
+        await signOut(auth);
+        return { status: 200, message: "User logged out successfully" };
+    } catch (error) {
+        console.error(error.message);
+        throw new Error(error.message);
+    }
 };
 
 export const getCurrentUser = async () => {

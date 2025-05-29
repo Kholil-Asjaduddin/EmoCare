@@ -1,16 +1,8 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import SignupForm from "./SignupForm";
 
 const SignupPage = () => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/selectrole");
-    }
-  }, [user, navigate]);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
