@@ -7,7 +7,7 @@ const dbRef = ref(db);
 export const getUserData = async (userRole, userId) => {
   try {
     const snapshot = await get(child(dbRef, `users/${userRole}s`));
-    if (snapshot.hasChild(userId)) {console.log(snapshot.val()[userId])
+    if (snapshot.hasChild(userId)) {
       return snapshot.val()[userId];
     } else {
       return false;
