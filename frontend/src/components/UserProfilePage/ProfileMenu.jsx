@@ -11,7 +11,8 @@ const ProfileMenu = () => {
     const menuRef = useRef();
     const navigate = useNavigate();
 
-    // Close the dropdown when clicking outside
+    const defaultAvatar = "https://t4.ftcdn.net/jpg/00/64/67/27/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg";
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -58,9 +59,9 @@ const ProfileMenu = () => {
     return (
         <div className="relative ml-auto" ref={menuRef}>
             <button onClick={handleDropdown} className="flex items-end gap-4 cursor-pointer bg-nav">
-                <p className="mb-1 text-lg">Sam</p>
+                <p className="mb-1 text-lg">{user ? user?.username : "Sign In"}</p>
                 <img
-                    src="https://imgs.search.brave.com/s-FdOtiJTvkBr0HYUw4f3vZj06rt6KUs5reDU36P13Q/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQx/Nzc1MDA1MS9waG90/by9sYXJnZS1tYW4t/bWFraW5nLWZ1bm55/LXN1cnByaXNlZC1m/YWNlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz10cXdrQS04/YnpLU1dTeHNFMXNS/VWNGWWo3QjBPZFFp/N1E4d29lRTBoQnZn/PQ"
+                    src={user ? `data:image/jpeg;base64,${user.photoBase64}` : defaultAvatar}
                     alt="User avatar"
                     className="size-9 bg-gray-300 border border-bg-light rounded-full"
                 />
