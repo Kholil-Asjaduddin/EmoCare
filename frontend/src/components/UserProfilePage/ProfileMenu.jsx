@@ -61,7 +61,7 @@ const ProfileMenu = () => {
             <button onClick={handleDropdown} className="flex items-end gap-4 cursor-pointer bg-nav">
                 <p className="mb-1 text-lg">{user ? user?.username : "Sign In"}</p>
                 <img
-                    src={user ? `data:image/jpeg;base64,${user.photoBase64}` : defaultAvatar}
+                    src={user ? (user.photoBase64 ? `data:image/jpeg;base64,${user.photoBase64}` : defaultAvatar) : defaultAvatar}
                     alt="User avatar"
                     className="size-9 bg-gray-300 border border-bg-light rounded-full"
                 />
