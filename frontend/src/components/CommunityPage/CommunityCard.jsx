@@ -2,19 +2,21 @@ import PropTypes from "prop-types";
 
 import ViewButton from "./ViewButton";
 
-const CommunityCard = ({ name, members, isJoined, onView }) => {
+const CommunityCard = ({ communityId, name, memberCount, isJoined, onView }) => {
   return (
     // <div className="scale-70 flex flex-col justify-between items-center bg-nav rounded-[50px] py-11 drop-shadow-lg">
-    <div className="w-140 scale-70 flex flex-col justify-between bg-nav rounded-[50px] py-5 justify-self-center">
+    <div className="w-140 h-65 scale-70 flex flex-col justify-between bg-nav rounded-[50px] py-5 justify-self-center">
       <div className="flex flex-col items-center">
         <h1 className="font-bold pb-2">{name}</h1>
         <p className="font-normal text-3xl">
-          {members} {members > 1 ? "members" : "member"}
+          {memberCount} {memberCount > 1 ? "members" : "member"}
         </p>
       </div>
       <div className="w-full flex justify-center gap-8">
         {!isJoined ? (
-          <ViewButton onClick={onView} />
+          <div className="flex justify-center scale-85">
+            <ViewButton onClick={onView} communityId={communityId} />
+          </div>
         ) : (
           <div className="flex flex-col">
             <div className="flex gap-5">
@@ -71,7 +73,7 @@ const CommunityCard = ({ name, members, isJoined, onView }) => {
               </p>
             </div>
             <div className="flex justify-center scale-85">
-              <ViewButton className="" onClick={onView} />
+              <ViewButton onClick={onView} communityId={communityId} />
             </div>
           </div>
         )}
@@ -82,6 +84,8 @@ const CommunityCard = ({ name, members, isJoined, onView }) => {
 
 CommunityCard.propTypes = {
   name: PropTypes.string.isRequired,
+  communityId: PropTypes.string.isRequired,
+  memberCount: PropTypes.number.isRequired,
   members: PropTypes.number.isRequired,
   isJoined: PropTypes.bool.isRequired,
   onView: PropTypes.func.isRequired,

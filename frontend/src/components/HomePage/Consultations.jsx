@@ -37,14 +37,11 @@ const Consultations = () => {
         try {
             const consultSnapshot = await get(ref(database, "consultations"));
             const consultationsData = consultSnapshot.exists() ? Object.values(consultSnapshot.val()) : [];
-            console.log("Fetched consultations:", consultationsData);
 
             const userConsultations = consultationsData.filter(
             (consult) => consult.clientId === user.uid
             );
-            console.log("User consultations:", userConsultations);
 
-            // const snapshotPsychologist = getUserData("psychologist", psychologistId)
             const enrichedConsultations = await Promise.all(
                 userConsultations.map(async (consult) => {
                     const psychologistData = await getUserData("psychologist", consult.psychologistId);

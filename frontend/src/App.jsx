@@ -62,13 +62,13 @@ function App() {
           {/* route to /community */}
           <Route path="/community" element={<CommunityPage />} />
           {/* route to /communityconvo */}
-          <Route path="/communityconvo" element={<CommunityConvoPage />} />
+          {/* <Route path="/communityconvo" element={<CommunityConvoPage />} /> */}
           {/* route to /chatbot */}
           <Route path="/chatbot" element={<ChatbotPage />} />
           {/* route to /consultation */}
           <Route path="/consultation" element={<ConsultationPage />} />
           {/* route to /consultationchat */}
-          <Route path="/consultationchat" element={<ConsultationChatPage />} />
+          {/* <Route path="/consultationchat" element={<ConsultationChatPage />} /> */}
           {/* route to /psychologistsession */}
           <Route path="/psychologistsession" element={<PsychologistSessionPage />} />
 
@@ -76,6 +76,7 @@ function App() {
           {/* <Route path="/" element={<Test />} /> */}
 
           <Route path="/consultationchat/:sessionId" element={<ConsultationChatPage />} />
+          <Route path="/communityconvo/:chatId" element={<CommunityConvoPage />} />
         </Routes>
       </main>
     </Router>
