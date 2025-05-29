@@ -3,9 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 const OpenConsultationPageButton = ({ disabled, bgColor }) => {
   const navigate = useNavigate();
+  
+  // ambil session id dari db
+
   return (
     <button
-      onClick={() => navigate("/consultationchat")}
+      onClick={() => {
+        const sessionId = "1234"; // TODO: Replace this with dynamic ID from DB if needed
+        navigate(`/consultationchat/${sessionId}`);
+      }}
       disabled={disabled}
       style={{
         backgroundColor: bgColor,

@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
+import LandingPage from "./components/LandingPage/LandingPage";
+import HomePage from "./components/HomePage/HomePage";
 import SignupPage from "./components/SignupPage/SignupPage";
 import SelectRolePage from "./components/SelectRolePage/SelectRolePage";
 import LoginPage from "./components/LoginPage/LoginPage";
@@ -33,9 +35,10 @@ function App() {
       <Navbar />
       <main className="flex flex-col items-center w-screen h-full">
         <Routes>
-          {/* route to landing or home page */}
-          <Route path="/" element={<ProtectedRoute />} />
-          
+          {/* route to landing */}
+          <Route path="/" element={<LandingPage />} />
+          {/* route to home */}
+          <Route path="/home" element={<HomePage />} />
           {/* route to /signup */}
           <Route path="/signup" element={<SignupPage />} />
           {/* route to /selectrole */}
@@ -71,6 +74,8 @@ function App() {
 
           {/* route to /test */}
           {/* <Route path="/" element={<Test />} /> */}
+
+          <Route path="/consultationchat/:sessionId" element={<ConsultationChatPage />} />
         </Routes>
       </main>
     </Router>
