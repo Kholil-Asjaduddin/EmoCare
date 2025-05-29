@@ -8,7 +8,7 @@ const {
 } = require('../controllers/educationContentController');
 
 // Routes
-router.post('/upload/video', uploadVideo);
+router.post('/upload-video', uploadVideo);
 router.post('/upload/podcast', uploadPodcast);
 router.post('/upload/article', uploadArticle);
 

@@ -19,6 +19,7 @@ const psychologistRoutes = require("./routes/psychologistRoutes");
 const communityRoutes = require("./routes/communityRoutes");
 const communityChatRoutes = require("./routes/communityChatRoutes");
 const consultationRoutes = require("./routes/consultationRoutes");
+const educationRoutes = require("./routes/educationRoutes");
 
 const chatbotRoutes = require("./routes/chatbotRoutes");
 
@@ -28,6 +29,7 @@ app.use("/psychologist", psychologistRoutes);
 app.use("/community", communityRoutes);
 app.use("/community-chat", communityChatRoutes);
 app.use("/consultation", consultationRoutes);
+app.use("/education", educationRoutes);
 app.use("/chatbot", chatbotRoutes);
 
 // Run the server
