@@ -28,7 +28,6 @@ const DatePicker = ({ date, clientId, psychologistId, onSuccess }) => {
 
   const isPastSlot = (date, time) => {
       const now = new Date();
-      const [slotHour, slotMinute] = time.split(":").map(Number);
       const slotDateTime = new Date(`${date}T${time}:00`);
       
       return slotDateTime < now;

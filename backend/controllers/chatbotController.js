@@ -1,10 +1,3 @@
-const { InferenceClient } = require('@huggingface/inference');
-
-const huggingFaceAccessToken = process.env.HUGGINGFACE_ACCESS_TOKEN;
-const inference = new InferenceClient(huggingFaceAccessToken);
-
-const model = "tanusrich/Mental_Health_Chatbot";
-
 const getResponse = async (req, res) => {
     try {
         const { message } = req.body;
