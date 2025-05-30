@@ -26,3 +26,11 @@ dist-ssr
 # Environment variables
 .env
 serviceAccountKey.json
+
+# Python cache & build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.safetensors

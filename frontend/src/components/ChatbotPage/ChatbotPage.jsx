@@ -3,21 +3,11 @@ import MessageBubble from "./MessageBubble";
 import { IoSend } from "react-icons/io5";
 
 const ChatbotPage = () => {
-    const [messages, setMessages] = useState([]); // Awalnya kosong
+    const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
-    // Daftar respons chatbot secara bergantian
-    const chatbotResponses = [
-        "I understand. Can you tell me more about what's causing the stress?",
-        "That makes sense. Deadlines can be overwhelming. Have you tried any coping strategies?",
-        "It's good that you're talking about it. Maybe we can explore some techniques together.",
-        "I'm here to listen. Tell me more.",
-        "Would you like some relaxation techniques?"
-    ];
-
-    // Menangani pengiriman pesan
-    const handleSendMessage = () => {
-        if (!inputValue.trim()) return; // Cegah input kosong
+    const handleSendMessage = async () => {
+        if (!inputValue.trim()) return;
 
         const userMessage = {
             text: inputValue,
@@ -25,24 +15,31 @@ const ChatbotPage = () => {
             isSender: true
         };
 
-        setMessages((prevMessages) => [...prevMessages, userMessage]); // Tambahkan pesan pengguna
+        setMessages((prevMessages) => [...prevMessages, userMessage]);
+        setInputValue("");
 
-        setInputValue(""); // Kosongkan input
-
-        // Tambahkan respons chatbot setelah 1 detik
-        setTimeout(() => {
-            const botMessage = {
-                text: chatbotResponses[Math.floor(Math.random() * chatbotResponses.length)],
+        try {
+            const res = await fetch(`${import.meta.env.VITE_CHATBOT_URL}/chat`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: inputValue })
+            });
+            const data = await res.json();
+            
+            const aiMessage = {
+                text: data.response,
                 time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                 isSender: false
             };
-            setMessages((prevMessages) => [...prevMessages, botMessage]); // Tambahkan respons chatbot
-        }, 1000);
+            setMessages((prev) => [...prev, aiMessage]);
+        } catch (err) {
+            console.error("Gagal fetch ke API:", err);
+        }
     };
 
     return (
         <div className="w-screen h-screen bg-light flex flex-col">
-            {/* Area Percakapan */}
+            {/* Chat area */}
             <div className="flex-grow overflow-y-auto overflow-x-hidden scrollbar-hidden-hover px-4 pt-20 w-full flex justify-center">
                 <div className="flex flex-col space-y-6 w-full max-w-3xl pb-32">
                     {messages.map((msg, index) => (
@@ -59,7 +56,7 @@ const ChatbotPage = () => {
                         className="w-full outline-none text-gray-700"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
-                        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} // Enter untuk kirim pesan
+                        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                     />
                     <button className="ml-2 text-gray-500 hover:text-gray-700" onClick={handleSendMessage}>
                         <IoSend size={24} />
