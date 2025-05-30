@@ -33,4 +33,5 @@ __pycache__/
 *.pyo
 *.pyd
 
-.safetensors
+*.safetensors
+*spiece.model
