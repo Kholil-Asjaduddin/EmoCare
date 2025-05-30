@@ -35,8 +35,8 @@ const SchedulePopup = ({ isVisible, onClose, psychologist, clientId, onBookSucce
 
   if (!isVisible) return null;
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm">
-      <div className="w-100 h-4/5 flex flex-col bg-light">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm pt-10">
+      <div className="w-100 flex flex-col bg-light">
         {/* Header section */}
         <div className="bg-nav">
           <div className="justify-self-end px-2">
